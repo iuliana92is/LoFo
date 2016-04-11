@@ -1,0 +1,105 @@
+.filterBar{
+    margin: 0 auto;
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #F6A0A1;
+    box-shadow: 0 3px 6px #f3f3f3, 0 3px 6px #f3f3f3;
+}
+
+.filterBar form {
+	margin: 0 auto;
+    display: inline-block;
+    width: 100%;
+    padding: 20px 0; 
+} 
+
+.filterBar form select{
+	border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #ffffff;
+    margin:10px 0; 
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif; 
+    outline: none;
+}
+
+.filterBar form button{
+	border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #ffffff;
+    margin:10px 0; 
+    background-image: url('../images/icons/search.png');
+    background-repeat: no-repeat;
+    background-position: 10px;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif; 
+    outline: none;
+}
+
+.filterBar form button:hover{
+    background-color: #bdbdbd; 
+    transition: 1s;
+}
+ 
+select { 
+    background: url(../images/icons/select.png) no-repeat right #ddd;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ie-appearance: none;
+    -o-appearance: none;
+    background-position: 95%;
+ }
+
+/*********************** Responsive Navigation **************************/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1024px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 860px) {
+
+}
+
+/* Small Devices, Tablets */ 
+@media only screen and (max-width : 640px) {
+    .filterBar form select,
+    .filterBar form  button {
+        height: 30px;
+        width: 45%;
+        margin: 5px 0;
+    }
+
+    .filterBar form {
+        padding: 5px 0;
+    }
+    
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 480px) {
+    .filterBar form select,
+    .filterBar form button {
+        height: 30px;
+        width: 90%;
+        margin: 5px 0;
+    }
+    
+}

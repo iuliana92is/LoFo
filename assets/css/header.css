@@ -1,0 +1,190 @@
+header {
+	width: 100%;
+	height: auto; 
+	box-sizing: border-box;
+}
+
+header .header-bar {
+	width: 100%;
+	height: 100px; 
+	/*// background-color: orange;*/
+	box-sizing: border-box;
+	box-shadow: 0 3px 6px #f3f3f3, 0 3px 6px #f3f3f3;
+}
+
+header .header-bar .left-side {
+	width: 30%;
+	height: 100%;
+	box-sizing: border-box;
+	/*// background-color: yellowgreen;*/
+	float: left;
+}
+header .header-bar .left-side #inregistrare { 
+	box-sizing: border-box; 
+	height: 50%;
+	width: 100%;
+	background-color: #5BC4BF;
+	text-align: center;
+}
+
+header .header-bar .left-side #inregistrare:hover {
+	background-color: #ABA5A5;
+	transition: 1s;
+	/*// transform: rotateY(180deg);*/
+} 
+header .header-bar .left-side #autentificare:hover {
+	background-color: #ABA5A5;
+	transition: 1s;
+	/*// transform: rotateY(180deg);*/
+} 
+header .header-bar .right-side #gasit:hover {
+	background-color: #ABA5A5;
+	transition: 1s;
+	/*// transform: rotateY(180deg);*/
+} 
+header .header-bar .right-side #pierdut:hover {
+	background-color: #ABA5A5;
+	transition: 1s;
+	/*// transform: rotateY(180deg);*/
+} 
+
+
+header .header-bar .left-side #inregistrare .inregistrare-link { 
+}
+
+header .header-bar .left-side #autentificare { 
+	box-sizing: border-box; 
+	height: 50%;
+	width: 100%;
+	background-color: #F6A0A1;
+	text-align: center;
+}
+
+header .header-bar .left-side #autentificare .autentificare-link {  
+}
+
+header .header-bar .logo {
+	width: 40%;
+	height: 100%;
+	box-sizing: border-box;
+	/*// background-color: red;*/
+	float: left;
+	background-image: url('../images/logo.png');
+	background-size: 130px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+header .header-bar .logo  a{
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+header .header-bar .logo  a img{
+	width: 100%;
+	height: 100%;
+}
+
+header .header-bar .right-side {
+	width: 30%;
+	height: 100%;
+	box-sizing: border-box;
+	/*// background-color: blue;*/
+	float: right;
+	display: inline-block;
+}
+
+header .header-bar .right-side #pierdut{ 
+	height: 50%;
+	background-color: #5BC4BF;
+	width: 100%;
+	text-align: center;
+}
+
+header .header-bar .right-side #pierdut .pierdut-link { 
+}
+
+header .header-bar .right-side #gasit{ 
+	height: 50%;
+	background-color: #F6A0A1;
+	width: 100%;
+	text-align: center;
+}
+
+header .header-bar .right-side #gasit .gasit-link { 
+}
+
+header .slider {
+	width: 100%;
+    height: 550px; 
+    background-image: url('../images/banner.jpg'); 
+    box-shadow: 0 3px 6px #f3f3f3, 0 3px 6px #f3f3f3;
+    margin-top: 20px; 
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%;
+    opacity: 0.8;
+    box-shadow: 0 3px 6px grey, 0 3px 6px grey;
+    text-align: center;
+}
+
+
+/*********************** Responsive Navigation **************************/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1024px) {
+	header .slider {
+		/*display: none;*/
+		height: 500px;
+		background-size: 1024px;		 
+	} 
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 860px) {
+	header .slider {
+		/*display: none;*/
+		height: 350px;
+		background-size: 860px;		 
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 640px) {
+	header .slider {
+		/*display: none;*/
+		height: 300px;
+	    background-size: 640px;
+	    background-attachment: initial;
+	}
+	header .header-bar .left-side,
+	header .header-bar .logo,
+	header .header-bar .right-side {
+		width: 100%;
+	}
+
+	header .header-bar {
+		height: 70px;
+	}
+	header .header-bar .logo{
+		height: 70%;
+		background-size: 80px;
+	}
+
+	a.inregistrare-link,
+	a.autentificare-link,
+	a.gasit-link,
+	a.pierdut-link {
+	    line-height: 2.5;
+	} 
+}
+
+@media only screen and (max-width : 460px) {
+	header .slider {
+		/*display: none;*/
+		height: 200px;
+	    background-size: 460px;
+	    background-attachment: initial;
+	}
+}

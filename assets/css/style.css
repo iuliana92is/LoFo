@@ -1,0 +1,335 @@
+@import url("authentication.css");
+@import url("footer.css");
+@import url("found.css");
+@import url("header.css");
+@import url("register.css");
+@import url("slider-filterBar.css");
+@import url("toateAnunturi.css");
+@import url("vizualizateAnunturi.css");
+@import url("ultimeleAnunturi.css"); 
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, canvas, details, embed, 
+figure, figcaption, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+article, details, figcaption, figure,  
+header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Josefin Sans', sans-serif; 
+    width: 100%;
+    overflow-x: hidden; 
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+select, input, button {
+    font-family: 'Josefin Sans', sans-serif; 
+}
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 640px) {
+    body {
+        line-height: 1;
+        font-size: 10px;
+        font-weight: 300;
+        font-family: 'Josefin Sans', sans-serif; 
+        width: 100%;
+        overflow-x: hidden; 
+    }
+    p{
+        font-size: 10px;
+    }
+}
+
+.clearfix {
+    clear: both;
+}
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('../fonts/JosefinSans-Light.ttf') format("truetype");
+}
+ 
+
+ 
+a{
+	 line-height: 3.5;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+a:hover {
+  	font-weight: bold;
+  	/*// color:#c3c3c3;*/
+}
+
+hr {
+  margin: 0;
+}
+
+.closeItem {
+    display: none;
+}
+
+.openItem {
+    display: block;
+}
+ 
+
+html {
+  font-family: sans-serif;  
+  -ms-text-size-adjust: 100%;  
+  -webkit-text-size-adjust: 100%;  
+}
+ 
+body {
+  margin: 0;
+}
+
+ 
+article, 
+details,
+figcaption,
+figure, 
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+ 
+ 
+[hidden],
+template {
+  display: none;
+}
+
+ 
+a {
+  background-color: transparent;
+}
+ 
+
+a:active,
+a:hover {
+  outline: 0;
+}
+ 
+
+b,
+strong {
+  font-weight: bold;
+}
+
+ 
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+ 
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+ 
+small {
+  font-size: 80%;
+}
+ 
+ 
+img {
+  border: 0; 
+} 
+ 
+svg:not(:root) {
+  overflow: hidden;
+}
+
+ 
+
+figure {
+  margin: 1em 40px;
+}
+
+ 
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+ 
+
+pre {
+  overflow: auto;
+}
+
+ 
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+ 
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;  
+  font: inherit;  
+  margin: 0;  
+}
+
+ 
+button {
+  overflow: visible;
+}
+
+ 
+
+button,
+select {
+  text-transform: none;
+}
+
+ 
+button,
+html input[type="button"],  
+input[type="reset"],
+input[type="submit"],
+input[type=file] {
+  -webkit-appearance: button;  
+  cursor: pointer; 
+}
+ 
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+ 
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+ 
+input {
+  line-height: normal;
+}
+
+ 
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;  
+  padding: 0;  
+}
+
+ 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+
+input[type=file] {
+  color: transparent;
+  background-color: transparent;
+}
+ 
+ 
+ 
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+ 
+legend {
+  border: 0;  
+  padding: 0;  
+}
+
+ 
+
+textarea {
+  overflow: auto;
+}
+
+ 
+optgroup {
+  font-weight: bold;
+}
+
+ 
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: inline-block;  
+}

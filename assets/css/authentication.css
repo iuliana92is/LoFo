@@ -1,0 +1,147 @@
+#formAuthentication { 
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 100%;
+    box-shadow: 0 3px 6px #f3f3f3, 0 3px 6px #f3f3f3;
+}
+
+#formAuthentication #formAuthenticationField{
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #f3f3f3;
+    background-color: rgba(120, 125, 124, 0.2);
+}
+
+#formAuthentication  #formAuthenticationField input{
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    text-transform: none;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+}
+
+#formAuthentication  #formAuthenticationField select{
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    text-transform: none;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+}
+
+#formAuthentication  #formAuthenticationField button{
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+}
+
+#formAuthentication #formAuthenticationField textarea {
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 200px;
+    max-height: 200px;
+    width: 406px;
+    max-width: 406px;
+    border-radius: 4px; 
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    text-transform: none;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+    color:black;
+    padding: 10px;
+} 
+#formAuthentication  #formAuthenticationField .btn-autentificare{
+    background-color: #5bc4bf;
+    color: #fff;
+}
+ 
+
+#formAuthentication  #formAuthenticationField .btn-cancel{
+    background-color: #f6a0a1;
+    color: #fff;
+}
+
+#formAuthentication  #formAuthenticationField .btn-autentificare:hover{
+    background-color: #bdbdbd; 
+    transition: 1s;
+}
+
+#formAuthentication  #formAuthenticationField .btn-cancel:hover {
+    background-color: #bdbdbd;
+    transition: 1s;
+}
+/*********************** Responsive Navigation **************************/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1024px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 860px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 640px) {
+    #formAuthentication  #formAuthenticationField input,
+    #formAuthentication  #formAuthenticationField select,
+    #formAuthentication  #formAuthenticationField textarea,
+    #formAuthentication  #formAuthenticationField .btn-autentificare,
+    #formAuthentication  #formAuthenticationField .btn-cancel {
+        height: 30px;
+        width: 45%;
+        margin: 5px 0;
+    }
+    #formAuthentication #formAuthenticationField {
+        padding: 5px 0;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 480px) {
+    #formAuthentication  #formAuthenticationField input,
+    #formAuthentication  #formAuthenticationField select,
+    #formAuthentication  #formAuthenticationField textarea,
+    #formAuthentication  #formAuthenticationField .btn-autentificare,
+    #formAuthentication  #formAuthenticationField .btn-cancel {
+        height: 30px;
+        width: 90%;
+        margin: 5px 0;
+    }
+
+    
+}
