@@ -71,8 +71,7 @@
         <br/> 
         <div class="clearfix"> </div>
         <div class="upload">
-            <input type="file" name="upload"/> 
-            <div class="tooltip">I am a tooltip!</div>
+            <input type="file" name="upload"/>  
         </div>
         <br/>
         <div class="clearfix"> </div>
