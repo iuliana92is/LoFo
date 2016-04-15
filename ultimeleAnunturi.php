@@ -6,7 +6,7 @@
                 <li id="categorie-ultimele">Categorie</li>
                 <li id="zona-ultimele">zona</li>
                 <li id="perioada-ultimele">perioada</li>
-                <li id="recompensa-ultimele">inapoiere</li>
+                <li id="recompensa-ultimele">obiect/animal</li>
                 <li id="detalii-ultimele"> detalii</li>
             </ul>
         </div>
@@ -15,7 +15,7 @@
                 <li class="categorie" >obiect </li>
                 <li class="zona"> dancu </li>
                 <li class="dataPublicarii" > ziua curenta </li>
-                <li class="recomensa" > cu recomensa </li>
+                <li class="obiect/animal" > telefon </li>
                 <li class="detalii">  <img src="assets/images/icons/down.png" alt="down arrow"  onclick="addClass('.infoText ', 'visible')" />   Detalii </li>
             </ul>
             <!-- details informations -->
@@ -59,7 +59,7 @@
                 <li class="categorie" >obiect </li>
                 <li class="zona"> dancu </li>
                 <li class="dataPublicarii" > ziua curenta </li>
-                <li class="recomensa" > cu recomensa </li>
+                <li class="obiect/animal" > buletin </li>
                 <li class="detalii">  <img src="assets/images/icons/down.png" alt="down arrow"  onclick="addClass('.infoText ', 'visible')" />   Detalii </li>
             </ul>
             <!-- details informations -->
@@ -103,7 +103,7 @@
                 <li class="categorie" >obiect </li>
                 <li class="zona"> dancu </li>
                 <li class="dataPublicarii" > ziua curenta </li>
-                <li class="recomensa" > cu recomensa </li>
+                <li class="obiect/animal" > papagal </li>
                 <li class="detalii">  <img src="assets/images/icons/down.png" alt="down arrow"  onclick="addClass('.infoText ', 'visible')" />   Detalii </li>
             </ul>
             <!-- details informations -->

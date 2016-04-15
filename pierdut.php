@@ -16,7 +16,7 @@
             include "slider-filterBar.php"
             ?>
         <?php
-            include "found.php";
+            include "lost.php";
             ?>  
         <?php
             include "toateAnunturi.php";

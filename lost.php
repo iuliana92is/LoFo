@@ -1,6 +1,6 @@
 <form id="formFound" method="POST" action="inregistrare.php" onsubmit="return(validate());" name="myForm" >
     <div id="formFoundField">
-    <h1>Am gasit ceva! <br/> Adaug acum un anunt!</h1>
+    <h1>Am pierdut ceva! <br/> Fac un anunt despre ce am pierdut!</h1>
        <!--  <input name="name" type="text"  placeholder="Nume"/>
         <input name="email" type="text" id="email"  placeholder="Email"/>
         <input name="phone" placeholder="Nr. Telefon" type="text"  pattern="^\d{4}-\d{3}-\d{4}$" /> -->
@@ -72,6 +72,7 @@
         <div class="clearfix"> </div>
         <div class="upload">
             <input type="file" name="upload"/> 
+            <div class="tooltip">I am a tooltip!</div>
         </div>
         <br/>
         <div class="clearfix"> </div>
