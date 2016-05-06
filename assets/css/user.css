@@ -1,0 +1,73 @@
+article.user {
+    max-width: 1020px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 90%;
+    box-shadow: 0 3px 6px #f3f3f3, 0 3px 6px #f3f3f3;
+    border-top: 1px solid#f3f3f3;
+}
+
+article.user #anunturiUtilizator {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 5px;
+}
+
+.listaPostari, .informatiileMele {
+	width: 100%;
+    box-sizing: border-box;
+    background-color: #5BC4BF;
+    border-left: 1px dotted #fff;
+    border-right: 1px dotted #fff;
+    line-height: 3;
+    color: #fff;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0; 
+    text-transform: uppercase;
+    font-size: 15px;
+    box-sizing: border-box;
+    padding-left: 5px;
+
+}
+
+.anunturiUtilizator ul, #infoMele ul {
+	width: 100%;
+}
+
+#anunturiUtilizator ul li {
+	width: 25%;
+    height: 25px;
+    float: left;
+    margin: 10px 0;
+    box-sizing: border-box;
+    padding-left: 5px;
+}
+
+#infoMele ul li{
+ 	height: 100%; 
+    margin: 15px 0;
+    box-sizing: border-box;
+    padding-left: 5px;
+}
+
+.anuntulMeu {
+	background-image: url('../images/icons/announcement.png'); 
+}
+.editareAnunt {
+	background-image: url('../images/icons/edit.png'); 
+}
+.eliminareAnunt {
+	background-image: url('../images/icons/delete.png'); 
+}
+.vizualizareAnunt {
+	background-image: url('../images/icons/seen.png'); 
+}
+
+#anunturiUtilizator .infoAnunt li {
+	padding-left: 30px;
+	line-height: 1.5;
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+}
