@@ -11,11 +11,12 @@ article.user {
 article.user #anunturiUtilizator {
     width: 100%;
     box-sizing: border-box;
-    padding-left: 5px;
+    padding: 0 5px;
 }
 
-.listaPostari, .informatiileMele {
-	width: 100%;
+.listaPostari,
+.informatiileMele {
+    width: 100%;
     box-sizing: border-box;
     background-color: #5BC4BF;
     border-left: 1px dotted #fff;
@@ -24,50 +25,76 @@ article.user #anunturiUtilizator {
     color: #fff;
     display: inline-block;
     box-sizing: border-box;
-    margin: 0; 
+    margin: 0;
     text-transform: uppercase;
     font-size: 15px;
     box-sizing: border-box;
     padding-left: 5px;
-
 }
 
-.anunturiUtilizator ul, #infoMele ul {
-	width: 100%;
+.anunturiUtilizator .infoAnunt {
+    width: 100%;
 }
 
-#anunturiUtilizator ul li {
-	width: 25%;
+.anuntulMeu {
+    background-image: url('../images/icons/announcement.png');
+}
+
+.editareAnunt {
+    background-image: url('../images/icons/edit.png');
+}
+
+.eliminareAnunt {
+    background-image: url('../images/icons/delete.png');
+}
+
+.vizualizareAnunt {
+    background-image: url('../images/icons/seen.png');
+}
+
+#anunturiUtilizator .infoAnunt .anuntInfos {
+    padding-left: 30px;
+    line-height: 1.5;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin-left: 20px;
+    border: none;
+    border-bottom: 1px dotted #5BC4BF;
+    outline: none;
     height: 25px;
     float: left;
     margin: 10px 0;
     box-sizing: border-box;
-    padding-left: 5px;
+    padding-left: 30px;
 }
 
-#infoMele ul li{
- 	height: 100%; 
-    margin: 15px 0;
+#infoMele .infoMele label {
+    width: 50px;
+}
+
+#infoMele .infoMele input {
+    margin-left: 20px;
+    border: none;
+    border-bottom: 1px dotted #5BC4BF;
+    outline: none;
+    width: 300px;
+}
+
+#infoMele .infoMele {
+    padding: 0 5px;
+}
+
+.infoAnunt {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.infoAnunt .placeInfo {
+    width: 25%;
+    float: left;
+    /*border-bottom: 1px solid grey;*/
+    border-bottom: 1px dotted #F6A0A1;
+    padding: 5px;
     box-sizing: border-box;
-    padding-left: 5px;
-}
-
-.anuntulMeu {
-	background-image: url('../images/icons/announcement.png'); 
-}
-.editareAnunt {
-	background-image: url('../images/icons/edit.png'); 
-}
-.eliminareAnunt {
-	background-image: url('../images/icons/delete.png'); 
-}
-.vizualizareAnunt {
-	background-image: url('../images/icons/seen.png'); 
-}
-
-#anunturiUtilizator .infoAnunt li {
-	padding-left: 30px;
-	line-height: 1.5;
-	background-size: 24px 24px;
-	background-repeat: no-repeat;
 }

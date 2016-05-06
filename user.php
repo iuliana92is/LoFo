@@ -6,11 +6,22 @@
 	</div> 
 	<br /> 
 	<section id="infoMele"> 
-		<ul class="infoMele">
-			<li>Nume:</li>
-			<li>Adesa e-mail:</li>
-			<li>Telefon:</li> 
-		</ul>
+	<br /> 
+		<form  class="infoMele"> 
+			<label>Nume:</label>
+			<input type="text"> </input> 
+			<div class="clearfix"></div>
+			<br /> 
+			<label> Adesa e-mail:</label>
+		  	<input type="text"></input>
+		  	<div class="clearfix"></div>
+		  	<br /> 
+		  	<label>Telefon:</label>
+		  	<input type="text"> </input>
+		  	<div class="clearfix"></div>
+		  	<br /> 
+		</form>
+		 
 	</section>	
 	<br /> 
 	<br /> 
@@ -20,24 +31,45 @@
 	</div>
 	<br />
 	<section id="anunturiUtilizator"> 
-        <ul class="infoAnunt">
-            <li class="anuntulMeu"> nume anunt 1</li>
-            <li class="editareAnunt">editare</li>
-            <li class="eliminareAnunt">eliminare</li> 
-            <li class="vizualizareAnunt">vizualizare</li>
-        </ul> 
-         <ul class="infoAnunt">
-           	<li class="anuntulMeu">nume anunt 2</li>
-            <li class="editareAnunt">editare</li>
-            <li class="eliminareAnunt">eliminare</li> 
-            <li class="vizualizareAnunt">vizualizare</li>
-        </ul> 
-         <ul class="infoAnunt">
-            <li class="anuntulMeu">nume anunt 3</li>
-            <li class="editareAnunt">editare</li>
-            <li class="eliminareAnunt">eliminare</li> 
-            <li class="vizualizareAnunt">vizualizare</li>
-        </ul>
+        <form class="infoAnunt">
+
+        	<div class="placeInfo">
+        		<label>nume anunt 1</label><br /> 
+            	<input type="text" class="anuntInfos anuntulMeu"> </input>
+        	</div>
+        	<div class="placeInfo">
+        		<label>editare</label><br /> 
+            	<input type="text" class="anuntInfos editareAnunt"> </input>
+        	</div>
+        	<div class="placeInfo">
+        		<label>eliminare</label><br /> 
+            	<input type="text" class="anuntInfos eliminareAnunt"> </input>
+        	</div>
+        	<div class="placeInfo">
+        		<label>vizualizare</label><br /> 
+            	<input type="text" class="anuntInfos vizualizareAnunt"> </input>
+        	</div> 
+        </form> 
+        <div class="clearfix"></div>
+         <form class="infoAnunt"> 
+        	<div class="placeInfo">
+        		<label>nume anunt 1</label><br /> 
+            	<input type="text" class="anuntInfos anuntulMeu"> </input>
+        	</div>
+        	<div class="placeInfo">
+        		<label>editare</label><br /> 
+            	<input type="text" class="anuntInfos editareAnunt"> </input>
+        	</div>
+        	<div class="placeInfo">
+        		<label>eliminare</label><br /> 
+            	<input type="text" class="anuntInfos eliminareAnunt"> </input>
+        	</div>
+        	<div class="placeInfo">
+        		<label>vizualizare</label><br /> 
+            	<input type="text" class="anuntInfos vizualizareAnunt"> </input>
+        	</div> 
+        </form>
+
 	</section> 
 	<div class="clearfix"></div>
 </article>
