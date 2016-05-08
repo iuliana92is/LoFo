@@ -1,8 +1,9 @@
 <form id="formFound" method="POST" action="inregistrare.php" onsubmit="return(validate());" name="myForm" >
     <div id="formFoundField">
-        <input name="name" type="text"  placeholder="Nume"/>
+    <h1>Am gasit ceva! <br/> Adaug acum un anunt!</h1>
+       <!--  <input name="name" type="text"  placeholder="Nume"/>
         <input name="email" type="text" id="email"  placeholder="Email"/>
-        <input name="phone" placeholder="Nr. Telefon" type="text"  pattern="^\d{4}-\d{3}-\d{4}$" />
+        <input name="phone" placeholder="Nr. Telefon" type="text"  pattern="^\d{4}-\d{3}-\d{4}$" /> -->
         <select class="categorie">
             <option disabled="" selected="">Categorie</option>
             <option>Animale</option>
@@ -47,13 +48,7 @@
             <option> Bunuri valoroase </option>
             <option> Acte</option>
             <option> Altele</option>
-        </select>
-        <input name="obiectulPerdut" type="text"  placeholder="Ce obiect este (e.g 'buletin')" />
-        <select>
-            <option disabled="" selected="">Predare</option>
-            <option>Cu recompensa</option>
-            <option>Fara recompensa</option>
-        </select>
+        </select> 
         <select class="culoare">
             <option disabled="" selected="">Culoare</option>
             <option> Rosu</option>

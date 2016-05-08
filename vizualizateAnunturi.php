@@ -6,7 +6,7 @@
                 <li id="categorie-vizualizate">Categorie</li>
                 <li id="zona-vizualizate">zona</li>
                 <li id="perioada-vizualizate">perioada</li>
-                <li id="recompensa-vizualizate">inapoiere</li>
+                <li id="recompensa-vizualizate">obiect/animal</li>
                 <li id="detalii-vizualizate"> detalii</li>
             </ul>
         </div>
@@ -14,9 +14,9 @@
         <div class="listaObiecte">
             <ul>
                 <li class="categorie" >obiect </li>
-                <li class="zona"> dancu langa bla bla</li>
-                <li class="dataPublicarii" > ziua curenta bla bla bla </li>
-                <li class="recomensa" > cu recomensa d e3000 </li>
+                <li class="zona"> dancu </li>
+                <li class="dataPublicarii" > ultima luna  </li>
+                <li class="obiect/animal" > ceas </li>
                 <li class="detalii">  <img src="assets/images/icons/down.png" alt="down arrow"  onclick="addClass('.infoText ', 'visible')" />   Detalii </li>
             </ul>
             <!-- details informations -->
@@ -60,7 +60,7 @@
                 <li class="categorie" >obiect </li>
                 <li class="zona"> dancu </li>
                 <li class="dataPublicarii" > ziua curenta </li>
-                <li class="recomensa" > cu recomensa </li>
+                <li class="obiect/animal" > catelus </li>
                 <li class="detalii">  <img src="assets/images/icons/down.png" alt="down arrow"  onclick="addClass('.infoText ', 'visible')" />   Detalii </li>
             </ul>
             <!-- details informations -->
@@ -104,12 +104,12 @@
                 <li class="categorie" >obiect </li>
                 <li class="zona"> dancu </li>
                 <li class="dataPublicarii" > ziua curenta </li>
-                <li class="recomensa" > cu recomensa </li>
+                <li class="obiect/animal" > umbrela </li>
                 <li class="detalii">  <img src="assets/images/icons/down.png" alt="down arrow"  onclick="addClass('.infoText ', 'visible')" />   Detalii </li>
             </ul>
             <!-- details informations -->
             <div class="clearfix"></div>
-            <div class="infoText hidden">
+            <div class="infoText hidden ">
                 <div class="infoTextObiect">
                     <div class="leftText">
                         <p>culoare: </p>
