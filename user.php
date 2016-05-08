@@ -30,6 +30,9 @@
         <div class="upload">
             <input type="file" name="upload"/> 
         </div>
+       <br/>
+        <textarea  placeholder="Descriere"></textarea>
+         <div class="clerfix"> </div>
     </form>
     <br/>
     </br>

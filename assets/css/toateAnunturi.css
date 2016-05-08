@@ -138,6 +138,13 @@ article.toateAnunturi {
     opacity: 0.7;
 } 
 
+.hidden {
+    display: none;
+}
+
+.active {
+    display: block;
+}
 
 
 /*********************** Responsive Navigation **************************/
