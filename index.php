@@ -1,3 +1,7 @@
+<?php
+require_once "config.php";
+
+?>
 <!DOCTYPE html>
 <html lang="ro">
     <head>
@@ -12,16 +16,16 @@
  
         <?php
             include "header.php";
-            ?> 
+        ?> 
         <?php
             include "ultimeleAnunturi.php";
-            ?> 
+        ?> 
         <?php
             include "vizualizateAnunturi.php";
-            ?>  
+        ?>  
         <?php
             include "footer.php";
-            ?>   
+        ?>   
         <script src="assets/js/elements.js" type="text/javascript"></script>
         <script type="text/javascript" src="assets/js/data.js"></script>
     </body>

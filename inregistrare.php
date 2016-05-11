@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="ro">
-    <head>
-        <title>Lost and Found</title>
-        <meta charset="UTF-8">
-        <meta name="author" content="Iuliana Ciobanu">
-        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' /> 
-        <link rel='stylesheet' href="assets/css/style.css" /> 
-        <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
-    </head>
-    <body>
         <?php
+            $title = "Inregistrare";
             include "header.php";
-            ?>  
-        <?php
-            include "register.php";
-            ?>  
+        ?>
+
+        <form id="formRegister" method="POST" name="myForm" >
+            <div id="formRegisterField"> 
+                <input type="text" name="nume" placeholder="Nume si prenume" required />
+                <input type="email" name="email" id="email" placeholder="Email" required />
+                <input type="text" name="utilizator" placeholder="Nume utilizator" required />
+                <input type="password" name="parola" class="password" placeholder="Parola" required />
+                <input type="phone" name="telefon" placeholder="Nr. Telefon" /> 
+                <br/>   
+                <button type="submit" class="btn-creare">Creare</button>
+                <button type="reset" class="btn-cancel">Renunta</button>
+            </div>
+        </form>
+
         <?php
             include "footer.php";
-            ?>   
-        <script src="assets/js/elements.js" type="text/javascript"></script>
-        <script type="text/javascript" src="assets/js/data.js"></script>
-    </body>
-</html>
+        ?>

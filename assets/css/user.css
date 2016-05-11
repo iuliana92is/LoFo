@@ -52,17 +52,15 @@ article.user #anunturiUtilizator {
     background-image: url('../images/icons/seen.png');
 }
 
-#anunturiUtilizator .infoAnunt .anuntInfos {
+#anunturiUtilizator     {
     padding-left: 30px;
     line-height: 1.5;
     background-size: 24px 24px;
     background-repeat: no-repeat;
     width: 100%;
     margin-left: 20px;
-    border: none;
-    border-bottom: 1px dotted #5BC4BF;
-    outline: none;
-    height: 25px;
+    border: none; 
+    outline: none; 
     float: left;
     margin: 10px 0;
     box-sizing: border-box;
@@ -87,14 +85,45 @@ article.user #anunturiUtilizator {
 
 .infoAnunt {
     width: 100%;
-    margin: 10px 0;
+    margin: 10px 0; 
 }
 
 .infoAnunt .placeInfo {
     width: 25%;
     float: left;
-    /*border-bottom: 1px solid grey;*/
     border-bottom: 1px dotted #F6A0A1;
     padding: 5px;
+    box-sizing: border-box;
+}
+
+
+ .anuntInfos {
+    width: 25%;
+    padding-left: 30px;
+    line-height: 1.5;
+    background-size: 24px 24px;
+    background-repeat: no-repeat; 
+    margin-left: 20px;
+    border: none; 
+    outline: none;
+    height: 25px;
+    float: left;
+    margin: 10px 0;
+    box-sizing: border-box;
+    padding-left: 30px;
+ }
+
+.infoAnunt   { 
+    line-height: 1.5;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin-left: 20px;
+    border: none;
+    border-bottom: 1px dotted #5BC4BF;
+    outline: none;
+    height: 40px;
+    float: left;
+    margin: 10px 0;
     box-sizing: border-box;
 }

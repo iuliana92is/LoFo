@@ -1,4 +1,4 @@
-<form id="formRegister" method="POST" action="inregistrare.php" onsubmit="return(validate());" name="myForm" >
+<form id="formRegister" name="myForm" >
     <div id="formRegisterField"> 
         <input  type="text" name="name" placeholder="Nume utilizator"/>
         <input  type="text" name="email" id="email"  placeholder="Email"/>

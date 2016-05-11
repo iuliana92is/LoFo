@@ -1,4 +1,4 @@
-<form id="formAuthentication" method="POST" action="inregistrare.php" onsubmit="return(validate());" name="myForm" >
+<form id="formAuthentication" method="POST" name="myForm" >
     <div id="formAuthenticationField">  
         <input type="text" name="numeUtilizator" id="numeUtilizator"  placeholder="Nume Utilizator"/>
         <input type="password" name="password" class="password"  placeholder="Parola"/>

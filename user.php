@@ -31,45 +31,27 @@
 	</div>
 	<br />
 	<section id="anunturiUtilizator"> 
-        <form class="infoAnunt">
-
-        	<div class="placeInfo">
-        		<label>nume anunt 1</label><br /> 
-            	<input type="text" class="anuntInfos anuntulMeu"> </input>
-        	</div>
-        	<div class="placeInfo">
-        		<label>editare</label><br /> 
-            	<input type="text" class="anuntInfos editareAnunt"> </input>
-        	</div>
-        	<div class="placeInfo">
-        		<label>eliminare</label><br /> 
-            	<input type="text" class="anuntInfos eliminareAnunt"> </input>
-        	</div>
-        	<div class="placeInfo">
-        		<label>vizualizare</label><br /> 
-            	<input type="text" class="anuntInfos vizualizareAnunt"> </input>
-        	</div> 
-        </form> 
-        <div class="clearfix"></div>
-         <form class="infoAnunt"> 
-        	<div class="placeInfo">
-        		<label>nume anunt 1</label><br /> 
-            	<input type="text" class="anuntInfos anuntulMeu"> </input>
-        	</div>
-        	<div class="placeInfo">
-        		<label>editare</label><br /> 
-            	<input type="text" class="anuntInfos editareAnunt"> </input>
-        	</div>
-        	<div class="placeInfo">
-        		<label>eliminare</label><br /> 
-            	<input type="text" class="anuntInfos eliminareAnunt"> </input>
-        	</div>
-        	<div class="placeInfo">
-        		<label>vizualizare</label><br /> 
-            	<input type="text" class="anuntInfos vizualizareAnunt"> </input>
-        	</div> 
-        </form>
-
+        <ul class="infoAnunt">
+             <li class="  anuntInfos anuntulMeu"> nume anunt 1</li>
+             <li class="  anuntInfos editareAnunt">editare</li>
+             <li class="  anuntInfos eliminareAnunt">eliminare</li> 
+             <li class="  anuntInfos vizualizareAnunt">vizualizare</li>
+         </ul> 
+         <div class="clearfix"></div>
+          <ul class="infoAnunt">
+            <li class="  anuntInfos anuntulMeu">nume anunt 2</li>
+             <li class="  anuntInfos editareAnunt">editare</li>
+             <li class="  anuntInfos eliminareAnunt">eliminare</li> 
+             <li class="  anuntInfos vizualizareAnunt">vizualizare</li>
+         </ul> 
+         <div class="clearfix"></div>
+          <ul class="infoAnunt">
+             <li class="  anuntInfos anuntulMeu">nume anunt 3</li>
+             <li class="  anuntInfos editareAnunt">editare</li>
+             <li class="  anuntInfos eliminareAnunt">eliminare</li> 
+             <li class="  anuntInfos vizualizareAnunt">vizualizare</li>
+         </ul>
+         <div class="clearfix"></div>
 	</section> 
 	<div class="clearfix"></div>
 </article>
