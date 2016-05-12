@@ -15,13 +15,19 @@
         <header>
             <section class="header-bar">
                 <div class="left-side">
-                    <div id="inregistrare"> 
-                            <a href="inregistrare.php" class="inregistrare-link">inregistrare</a>  
-                       
+                    <div id="inregistrare">
+                        <?php if(!$_SESSION['logat']) { ?>
+                            <a href="inregistrare.php" class="inregistrare-link">inregistrare</a>
+                        <?php } else { ?>
+                            <a href="paginaUtilizator.php" class="inregistrare-link"><?php echo $_SESSION['utilizator'] ?> - profil</a>
+                        <?php } ?>
                     </div>
-                    <div id="autentificare"> 
-                            <a href="autentificare.php" class="autentificare-link">autentificare</a>  
-                        
+                    <div id="autentificare">
+                        <?php if(!$_SESSION['logat']) { ?>
+                            <a href="autentificare.php" class="autentificare-link">autentificare</a>
+                        <?php } else { ?>
+                            <a href="logout.php" class="autentificare-link">logout</a>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="logo">

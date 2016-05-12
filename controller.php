@@ -7,9 +7,14 @@ switch($_POST["actiune"]) {
 	case "inregistare":
 		inregistrare();
 		break;
+	case "autentificare":
+		autentificare();
+		break;
 	default:
 		die("Nu exista aceasta actiune!");
 }
+
+// functia de inregistrare, pentru a salva datele utilizatorului 
 
 function inregistrare() {
 	$conexiune = $GLOBALS['conexiune'];
@@ -47,4 +52,43 @@ function inregistrare() {
 	}
 } 
 
+// functia de autentificare, pentru ca utilizatorul sa poata fi recunoscut, doar daca a fost inregistrat inainte 
+
+function autentificare() {
+	$conexiune = $GLOBALS['conexiune'];
+
+	if(!$_POST["utilizator"] || !$_POST["parola"]) {
+		echo json_encode(array(
+			'succes' => false,
+			'mesaj' => 'Nu sunt completate toate informatiile!'
+		));
+		die();
+	}
+
+	$sql = "select * from utilizatori where utilizator = '" . mysql_real_escape_string($_POST['utilizator']) . "' and parola = '" . md5($_POST['parola']) . "'";
+	$rezultat = $conexiune->query($sql);
+
+	if($rezultat->num_rows != 1) {
+		echo json_encode(array(
+			'succes' => false,
+			'mesaj' => 'Eroare autentificare!'
+		));
+		die();
+	}
+
+	$utilizator = $rezultat->fetch_assoc();
+	$_SESSION['logat'] = true;
+	$_SESSION['idUtilizator'] = $utilizator['id'];
+	$_SESSION['utilizator'] = $utilizator['utilizator'];
+	$_SESSION['email'] = $utilizator['email'];
+	$_SESSION['telefon'] = $utilizator['telefon'];
+	
+	echo json_encode(array(
+		'succes' => true,
+		'mesaj' => 'ok'
+	));
+}
+
 ?>
+
+

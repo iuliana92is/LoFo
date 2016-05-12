@@ -1,4 +1,4 @@
-<form id="formFound" method="POST" name="myForm" >
+<form id="formFound" method="POST" action="inregistrare.php" onsubmit="return(validate());" name="myForm" >
     <div id="formFoundField">
     <h1>Am gasit ceva! <br/>Adaug acum un anunt!</h1> 
         <select class="categorie">
