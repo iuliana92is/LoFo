@@ -10,6 +10,9 @@ switch($_POST["actiune"]) {
 	case "autentificare":
 		autentificare();
 		break;
+	case "adaugareAnunt":
+		adaugareAnunt();
+		break;
 	default:
 		die("Nu exista aceasta actiune!");
 }
@@ -87,6 +90,36 @@ function autentificare() {
 		'succes' => true,
 		'mesaj' => 'ok'
 	));
+}
+
+function adaugareAnunt() {
+	$conexiune = $GLOBALS['conexiune'];
+	$caleImagine = "";
+	if (isset($_FILES["file"]) && move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $_FILES["file"]["name"])) {
+	    $caleImagine = "uploads/" . $_FILES["file"]["name"];
+	}
+
+	if(!$_POST['tip'] || !$_POST['categorie'] || !$_POST['zona'] || !$_POST['nume'] || !$_POST['culoare'] || !$_POST['stare']) {
+		echo json_encode(array(
+			'succes' => false,
+			'mesaj' => 'Nu sunt completate toate informatiile!'
+		));
+		die();
+	}
+
+	$sql = "insert into anunturi (tip, utilizator, categorie, zona, nume, culoare, stare, imagine, descriere, data_adaugarii) values ('" . mysql_real_escape_string($_POST['tip']) . "', '" . mysql_real_escape_string($_SESSION['idUtilizator']) . "', '" . mysql_real_escape_string($_POST['categorie']) . "', '" . mysql_real_escape_string($_POST['zona']) . "', '" . mysql_real_escape_string($_POST['nume']) . "', '" . mysql_real_escape_string($_POST['culoare']) . "', '" . mysql_real_escape_string($_POST['stare']) . "', '" . $caleImagine . "', '" . mysql_real_escape_string($_POST['descriere']) . "', '" . date('Y-m-d') . "')";
+
+	if ($conexiune->query($sql) === TRUE) {
+		echo json_encode(array(
+			'succes' => true,
+			'mesaj' => 'Anuntul a fost adaugat!'
+		));
+	} else {
+		echo json_encode(array(
+			'succes' => false,
+			'mesaj' => 'Eroare adaugare anunt!'
+		));
+	}
 }
 
 ?>
