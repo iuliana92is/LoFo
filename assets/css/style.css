@@ -6,8 +6,8 @@
 @import url("slider-filterBar.css");
 @import url("toateAnunturi.css");
 @import url("vizualizateAnunturi.css");
-@import url("ultimeleAnunturi.css"); 
-@import url("user.css"); 
+@import url("ultimeleAnunturi.css");
+@import url("user.css");
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -91,7 +91,7 @@ select, input, button {
 
  
 a{
-	 line-height: 3.5;
+   line-height: 3.5;
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;
@@ -99,8 +99,8 @@ a{
 }
 
 a:hover {
-  	font-weight: bold;
-  	/*// color:#c3c3c3;*/
+    font-weight: bold;
+    /*// color:#c3c3c3;*/
 }
 
 hr {

@@ -97,7 +97,7 @@ article.user #anunturiUtilizator {
 }
 
 
-.anuntInfos {
+ .anuntInfos {
     width: 25%;
     padding-left: 30px;
     line-height: 1.5;
@@ -113,9 +113,6 @@ article.user #anunturiUtilizator {
     padding-left: 30px;
  }
 
-.editareAnunt, .eliminareAnunt, .vizualizareAnunt {
-    cursor: pointer;
-}
 .infoAnunt   { 
     line-height: 1.5;
     background-size: 24px 24px;
@@ -129,143 +126,4 @@ article.user #anunturiUtilizator {
     float: left;
     margin: 10px 0;
     box-sizing: border-box;
-}
-#modalAnunt {
-    width: 700px;
-    background-color: rgba(255, 255, 255, 0.8);
-    margin: 0 auto;
-    border: 1px dotted #5BC4BF;
-    border-radius: 5px;
-    box-sizing: border-box;
-    padding: 10px;
-    position: fixed;
-    top: 50%;
-    left: 50%; 
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-#modalAnunt h1{
-    text-align: center;
-}
- 
-#modalAnunt .dateModalAnunt input, select {
-    border-right-style: none;
-    border-bottom-style: none;
-    height: 40px;
-    width: 200px;
-    border-radius: 4px;
-    font-family: Lato;
-    border: 1px solid #bdbdbd;
-    box-sizing: border-box;
-    padding: 0 10px;
-    background-color: #ffffff;
-    margin: 10px 0;
-    text-transform: none;
-    font-family: 'Josefin Sans', sans-serif;
-    outline: none;
-}
-#modalAnunt .dateModalAnunt .upload {
-    border-right-style: none;
-    border-bottom-style: none;
-    height: 40px;
-    width: 200px;
-    border-radius: 4px;
-    font-family: Lato;
-    border: 1px solid #f3f3f3;
-    box-sizing: border-box;
-    padding: 0 10px;
-    background-color: #bdbdbd;
-    margin: 10px 0;
-    text-transform: uppercase;
-    font-family: 'Josefin Sans', sans-serif;
-    outline: none;
-    background-image: url(../images/icons/update.png);
-    background-repeat: no-repeat;
-    background-position:center;
-    margin: 0 auto;
-    margin-top: 10px;
-    cursor: pointer;
-}
-#modalAnunt .dateModalAnunt .upload input {
-    display: block !important;
-    width: 100% !important;
-    height: 30px !important;
-    opacity: 0 !important;
-    overflow: hidden !important;
-    cursor: pointer !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-
-
-#modalAnunt .dateModalAnunt textarea {
-    border-right-style: none;
-    border-bottom-style: none;
-    height: 100px;
-    max-height: 150px;
-    width: 406px;
-    max-width: 406px;
-    border-radius: 4px; 
-    border: 1px solid #bdbdbd;
-    box-sizing: border-box;
-    padding: 0 10px;
-    background-color: #ffffff;
-    margin: 10px 0;
-    text-transform: none;
-    font-family: 'Josefin Sans', sans-serif;
-    outline: none;
-    color:black;
-    padding: 10px; 
-}
-
-
-#modalAnunt .salveazaEditare, #modalAnunt .anuleazaEditare {
-    border-right-style: none;
-    border-bottom-style: none;
-    height: 40px;
-    width: 200px;
-    border-radius: 4px;
-    font-family: Lato;
-    border: 1px solid #bdbdbd;
-    box-sizing: border-box;
-    padding: 0 10px;
-    background-color: #ffffff;
-    margin: 10px 0;
-    text-transform: uppercase;
-    font-family: 'Josefin Sans', sans-serif;
-    outline: none;
-}
-
-#modalAnunt .salveazaEditare{
-    background-color: #5bc4bf;
-    color: #fff;
-}
-
-#modalAnunt .anuleazaEditare{
-    background-color: #f6a0a1;
-    color: #fff;
-}
-
-#modalAnunt .salveazaEditare:hover{
-    background-color: #bdbdbd; 
-    transition: 1s;
-}
-
-#modalAnunt .anuleazaEditare:hover{
-    background-color: #bdbdbd; 
-    transition: 1s;
-}
-
-#modalAnunt #inchideModal {
-    width: 30px;
-    float: right;
-}
-
-.hidden {
-    display: none;
-}
-
-.active {
-    display: inline-block;
 }
