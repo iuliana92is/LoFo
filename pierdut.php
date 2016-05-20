@@ -1,70 +1,139 @@
 <?php
     $titlu = "Pierdute";
-    include "header.php";
+    include "header.php"; 
 ?>  
 
 <section class="filterBar">
     <h1>Cautare rapida</h1>
     <form>
         <select class="categorie">
-            <option disabled="" selected="" value="0">Categorie</option> 
-                <option value=" "> </option> 
+            <option disabled="" selected="" value="0">Categorie</option>
+            <?php foreach($GLOBALS['categorii'] as $categorie) { ?>
+                <option value="<?php echo $categorie ?>"><?php echo $categorie ?></option>
+            <?php } ?>
         </select>
         <select class="zona" name="zona">
-            <option disabled="" selected="" value="0">Zona</option> 
-                <option value=" "> </option> 
+            <option disabled="" selected="" value="0">Zona</option>
+            <?php foreach($GLOBALS['zone'] as $zona) { ?>
+                <option value="<?php echo $zona ?>"><?php echo $zona ?></option>
+            <?php } ?>
         </select>
         <button class="search">search</button>
     </form>
 </section>
 
-    <?php if($_SESSION['logat']) { ?>
-            <form id="formFound" method="POST" action="" onsubmit="return adaugareAnunt('pierdut');" name="myForm" >
-                <div id="formFoundField">
-                <h1>Am gasit ceva! <br/>Adaug acum un anunt!</h1>
-                    <select class="categorie" id="addCategorie">
-                        <option disabled="" selected="" value="0">Categorie</option>
-                        <?php foreach($GLOBALS['categorii'] as $categorie) { ?>
-                        <option value="<?php echo $categorie ?>"><?php echo $categorie ?></option>
-                        <?php } ?>
-                    </select>
-                    <select class="zona" id="addZona">
-                        <option disabled="" selected="" value="0">Zona</option>
-                        <?php foreach($GLOBALS['zone'] as $zona) { ?>
-                            <option value="<?php echo $zona ?>"><?php echo $zona ?></option>
-                        <?php } ?>
-                    </select>
-                    <input type="text" placeholder="Nume"id="addNume"  />
-                    <select class="culoare" id="addCuloare">
-                        <option disabled="" selected="" value="0">Culoare</option>
-                        <?php foreach($GLOBALS['culori'] as $culoare) { ?>
-                        <option value="<?php echo $culoare ?>"><?php echo $culoare ?></option>
-                    <?php } ?>
-                    </select>
-                    <select class="stare" id="addStare">
-                        <option disabled="" selected="" value="0">Stare</option>
-                        <?php foreach($GLOBALS['stari'] as $stare) { ?>
-                        <option value="<?php echo $stare ?>"><?php echo $stare ?></option>
-                        <?php } ?>
-                    </select>
-                    <br/>
-                    <div class="clearfix"></div>
-                    <div class="upload">
-                        <input type="file" name="upload" id="addUpload"/>
+<?php if($_SESSION['logat']) { ?>
+    <form id="formFound" method="POST" action="" onsubmit="return adaugareAnunt('pierdut');" name="myForm" >
+        <div id="formFoundField">
+        <h1>Am gasit ceva! <br/>Adaug acum un anunt!</h1>
+            <select class="categorie" id="addCategorie">
+                <option disabled="" selected="" value="0">Categorie</option>
+                <?php foreach($GLOBALS['categorii'] as $categorie) { ?>
+                <option value="<?php echo $categorie ?>"><?php echo $categorie ?></option>
+                <?php } ?>
+            </select>
+            <select class="zona" id="addZona">
+                <option disabled="" selected="" value="0">Zona</option>
+                <?php foreach($GLOBALS['zone'] as $zona) { ?>
+                    <option value="<?php echo $zona ?>"><?php echo $zona ?></option>
+                <?php } ?>
+            </select>
+            <input type="text" placeholder="Nume"id="addNume"  />
+            <select class="culoare" id="addCuloare">
+                <option disabled="" selected="" value="0">Culoare</option>
+                <?php foreach($GLOBALS['culori'] as $culoare) { ?>
+                <option value="<?php echo $culoare ?>"><?php echo $culoare ?></option>
+            <?php } ?>
+            </select>
+            <select class="stare" id="addStare">
+                <option disabled="" selected="" value="0">Stare</option>
+                <?php foreach($GLOBALS['stari'] as $stare) { ?>
+                <option value="<?php echo $stare ?>"><?php echo $stare ?></option>
+                <?php } ?>
+            </select>
+            <br/>
+            <div class="clearfix"></div>
+            <div class="upload">
+                <input type="file" name="upload" id="addUpload"/>
+            </div>
+            <br/>
+            <div class="clearfix"></div>
+            <textarea  placeholder="Descriere" id="addDescriere"></textarea>
+            <br/>
+            <div class="clearfix"></div>
+            <button type="submit" class="btn-send">Adauga</button>
+            <button type="reset" class="btn-cancel">renunta</button>
+        </div>
+    </form>
+<?php } ?>
+
+<article class="toateAnunturi">
+    <h1>Anunturile cu obiectele pierdute</h1>
+    <section id="toateAnunturi">
+        <div class="tot">
+            <ul>
+                <li id="categorie-toate">categorie</li>
+                <li id="zona-toate">zona</li>
+                <li id="perioada-toate">perioada</li>
+                <li id="recompensa-toate">obiect/animal</li>
+                <li id="detalii-toate"> detalii</li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div class="listaObiecte">
+            <?php foreach($arrAnunturi as $anunt) { ?>
+            <div class=rand>
+                <ul>
+                <li class="categorie" ><?php echo $anunt['categorie'] ?> </li>
+                <li class="zona"> <?php echo $anunt['zona'] ?> </li>
+                <li class="dataPublicarii" > <?php echo $anunt['data_adaugarii'] ?> </li>
+                <li class="obiect/animal" ><?php echo $anunt['nume'] ?></li>
+                <li class="detalii"> <img src="assets/images/icons/down.png" alt="down arrow" onclick="vizualizareDetalii()"/>Detalii</li>
+            </ul>
+            <!-- details informations -->
+            <div class="clearfix"></div>
+            <div class="infoText hidden">
+                <div class="infoTextObiect">
+                    <div class="leftText">
+                        <p>culoare: </p>
                     </div>
-                    <br/>
+                    <div class="rightText">
+                        <p><?php echo $anunt['culoare'] ?></p>
+                    </div>
                     <div class="clearfix"></div>
-                    <textarea  placeholder="Descriere" id="addDescriere"></textarea>
-                    <br/>
+                    <div class="leftText">
+                        <p>stare: </p>
+                    </div>
+                    <div class="rightText">
+                        <p><?php echo $anunt['stare'] ?></p>
+                    </div>
                     <div class="clearfix"></div>
-                    <button type="submit" class="btn-send">Adauga</button>
-                    <button type="reset" class="btn-cancel">renunta</button>
+                    <div class="leftText">
+                        <p>detalii: </p>
+                    </div>
+                    <div class="rightText">
+                        <p><?php echo $anunt['descriere'] ?></p>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-            </form>
-        <?php } ?>
-<?php
-    include "toateAnunturi.php";
-?> 
+                <div class="infoTextImg">
+                    <?php if($anunt['imagine']) { ?>
+                    <img src="<?php echo $anunt['imagine'] ?>" alt="imagine obiect" />
+                    <?php } ?>
+                </div>
+                <div class="clearfix"></div>
+                <div class="infoTextOpen"  onclick="inchidereDetalii()">
+                    <img src="assets/images/icons/up.png" alt="up arrow" /> 
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!-- close detail informations -->
+            <hr/>
+            </div>
+            <?php } ?>
+        </div>
+        <div class="clearfix"></div> 
+</article> 
 <?php
     include "footer.php";
 ?>   

@@ -2,6 +2,14 @@
 error_reporting(E_ALL);
 session_start();
 
+if(!isset($_SESSION['logat'])) {
+    $_SESSION['logat'] = false;
+}
+
+if(!isset($_SESSION['utilizator'])) {
+    $_SESSION['utilizator'] = '';
+}
+
 $db_server = "localhost";
 $db_utilizator = "root";
 $db_parola = "";
@@ -10,7 +18,7 @@ $db_nume_db = "lofo";
 $conexiune = new mysqli($db_server, $db_utilizator, $db_parola, $db_nume_db);
 
 if($conexiune->connect_error) {
-	die("Eroare conexiune baza de date");
+    die("Eroare conexiune baza de date");
 }
 
 $GLOBALS['conexiune'] = $conexiune;

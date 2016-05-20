@@ -2,6 +2,9 @@
 require_once "config.php";
 error_reporting(0);
 
+if(!isset($_POST["actiune"])) {
+	die("Request incorect!");
+}
 
 switch($_POST["actiune"]) {
 	case "inregistare":
@@ -16,8 +19,6 @@ switch($_POST["actiune"]) {
 	default:
 		die("Nu exista aceasta actiune!");
 }
-
-// functia de inregistrare, pentru a salva datele utilizatorului 
 
 function inregistrare() {
 	$conexiune = $GLOBALS['conexiune'];
@@ -53,9 +54,7 @@ function inregistrare() {
 			'mesaj' => 'Eroare adaugare utilizator!'
 		));
 	}
-} 
-
-// functia de autentificare, pentru ca utilizatorul sa poata fi recunoscut, doar daca a fost inregistrat inainte 
+}
 
 function autentificare() {
 	$conexiune = $GLOBALS['conexiune'];
@@ -123,5 +122,3 @@ function adaugareAnunt() {
 }
 
 ?>
-
-

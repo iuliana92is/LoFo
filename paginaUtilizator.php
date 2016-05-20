@@ -1,8 +1,13 @@
 <?php
     $title = "Pagina utilizator";
-    include "header.php"; 
-     
-?>  
+    include "header.php";
+
+    if(!$_SESSION['logat']) {
+        header('Location: autentificare.php');
+    }
+?> 
+
+
 <article class="user">
     <h1>Nume User:</h1>
 
@@ -14,15 +19,15 @@
     <br /> 
         <form  class="infoMele"> 
             <label>Nume:</label>
-            <input type="text" value=" " readonly /> 
+            <input type="text" value="<?php echo $_SESSION['utilizator'] ?>" readonly /> 
             <div class="clearfix"></div>
             <br /> 
             <label> Adesa e-mail:</label>
-            <input type="text" value=" " readonly />
+            <input type="text" value="<?php echo $_SESSION['email'] ?>" readonly />
             <div class="clearfix"></div>
             <br /> 
             <label>Telefon:</label>
-            <input type="text" value=" " readonly />
+            <input type="text" value="<?php echo $_SESSION['telefon'] ?>" readonly />
             <div class="clearfix"></div>
             <br /> 
         </form>
