@@ -1,6 +1,20 @@
 <?php
     $titlu = "Pierdute";
     include "header.php"; 
+
+    $conexiune = $GLOBALS['conexiune'];
+    $pagina = isset($_GET['pagina']) && $_GET['pagina'] ? $_GET['pagina'] : 1;
+    $anunturiPePagina = 2; 
+    $sql = "select * from anunturi where tip = 'pierdut'";
+    $rezultat = $conexiune->query($sql);
+
+    $arrAnunturi = array();
+    while($rand = $rezultat->fetch_assoc()) {
+        $arrAnunturi[] = $rand;
+    }
+
+    $nrPagini = ceil(count($arrAnunturi) / $anunturiPePagina);
+    $arrAnunturi = array_slice($arrAnunturi, ($pagina - 1) * $anunturiPePagina, $anunturiPePagina);
 ?>  
 
 <section class="filterBar">
@@ -132,8 +146,15 @@
             </div>
             <?php } ?>
         </div>
+        <ul class="pagini">
+            <?php for($i = 1; $i <= $nrPagini; $i++) { ?>
+                <li <?php if($i == $pagina) echo 'class="active"' ?>><a href="?pagina=<?php echo $i ?>" style="color: black; float: left;"><?php echo $i ?></a></li>
+            <?php } ?>
+        </ul>
         <div class="clearfix"></div> 
-</article> 
+    </section>
+</article>
+
 <?php
     include "footer.php";
 ?>   
