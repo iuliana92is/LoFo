@@ -1,6 +1,6 @@
 <?php
     $titlu = "Pierdute";
-    include "header.php"; 
+    include "header.php";
 
     $conexiune = $GLOBALS['conexiune'];
     $pagina = isset($_GET['pagina']) && $_GET['pagina'] ? $_GET['pagina'] : 1;
@@ -151,7 +151,7 @@
                 <li <?php if($i == $pagina) echo 'class="active"' ?>><a href="?pagina=<?php echo $i ?>" style="color: black; float: left;"><?php echo $i ?></a></li>
             <?php } ?>
         </ul>
-        <div class="clearfix"></div> 
+        <div class="clearfix"></div>
 
         <select id="formatExport">
             <option value="html">HTML</option>
