@@ -79,3 +79,9 @@ function autentificare() {
 	xhttp.send(data);
 	return false;
 }
+
+function exportAnunturi(tip) {
+	var formatExport = document.getElementById("formatExport").value;
+	
+	window.open("export.php?tip=" + tip + "&formatExport=" + formatExport, "_blank");
+}

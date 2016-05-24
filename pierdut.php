@@ -152,6 +152,14 @@
             <?php } ?>
         </ul>
         <div class="clearfix"></div> 
+
+        <select id="formatExport">
+            <option value="html">HTML</option>
+            <option value="csv">CSV</option>
+            <option value="json">JSON</option>
+            <option value="pdf">PDF</option>
+        </select>
+        <button onclick="exportAnunturi('pierdut')">Export</button>
     </section>
 </article>
 
