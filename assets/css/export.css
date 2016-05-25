@@ -1,0 +1,41 @@
+#formatExport {
+	border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+}
+
+.exportAnunt {
+	border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+    background-color: #5BC4BF;
+    color: white;
+}
+
+
+.exportAnunt:hover {
+	background-color: #ABA5A5;
+	transition: 1s;
+}

@@ -146,9 +146,10 @@
             </div>
             <?php } ?>
         </div>
+        <div class="clearfix"></div>
         <ul class="pagini">
             <?php for($i = 1; $i <= $nrPagini; $i++) { ?>
-                <li <?php if($i == $pagina) echo 'class="active"' ?>><a href="?pagina=<?php echo $i ?>" style="color: black; float: left;"><?php echo $i ?></a></li>
+                <li <?php if($i == $pagina) echo 'class="active"' ?>><a href="?pagina=<?php echo $i ?>"><?php echo $i ?></a></li>
             <?php } ?>
         </ul>
         <div class="clearfix"></div>
@@ -159,7 +160,7 @@
             <option value="json">JSON</option>
             <option value="pdf">PDF</option>
         </select>
-        <button onclick="exportAnunturi('pierdut')">Export</button>
+        <button class="exportAnunt" onclick="exportAnunturi('pierdut')">Export</button>
     </section>
 </article>
 

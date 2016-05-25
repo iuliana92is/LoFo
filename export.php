@@ -34,7 +34,7 @@ function continutHtml($arrAnunturi) {
 		        <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 		    </head>
 		    <body>
-				<table class="todoDeStilizat" border="1">
+				<table class="tabelHtml">
 				<thead>
 					<tr>
 						<td>#</td>

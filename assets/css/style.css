@@ -8,6 +8,9 @@
 @import url("vizualizateAnunturi.css");
 @import url("ultimeleAnunturi.css");
 @import url("user.css");
+@import url("export.css");
+@import url("paginare.css");
+@import url("export-html.css"); 
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
