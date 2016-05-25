@@ -5,17 +5,42 @@
     $conexiune = $GLOBALS['conexiune'];
     $pagina = isset($_GET['pagina']) && $_GET['pagina'] ? $_GET['pagina'] : 1;
     $anunturiPePagina = 2; 
-    $sql = "select * from anunturi where tip = 'pierdut'";
-    $rezultat = $conexiune->query($sql);
+    $tip = 'pierdut';
+    $sql = "select an.*, ut.utilizator, ut.email, ut.telefon from anunturi an join utilizatori ut on ut.id = an.utilizator  where tip = ?";
+    $query = $conexiune->prepare($sql);
+    $query->bind_param('s', $tip);
+    $query->execute();
 
+    $rezultat = $query->get_result();
+    
     $arrAnunturi = array();
     while($rand = $rezultat->fetch_assoc()) {
-        $arrAnunturi[] = $rand;
+        $cautare = true;
+
+        if(isset($_GET['categorie']) && $_GET['categorie'] != $rand['categorie']) {
+            $cautare = false;
+        }
+
+        if(isset($_GET['zona']) && $_GET['zona'] != $rand['zona']) {
+            $cautare = false;
+        }
+
+        if(isset($_GET['culoare']) && $_GET['culoare'] != $rand['culoare']) {
+            $cautare = false;
+        }
+
+        if(isset($_GET['stare']) && $_GET['stare'] != $rand['stare']) {
+            $cautare = false;
+        }
+
+        if($cautare) {
+            $arrAnunturi[] = $rand;
+        }
     }
 
     $nrPagini = ceil(count($arrAnunturi) / $anunturiPePagina);
     $arrAnunturi = array_slice($arrAnunturi, ($pagina - 1) * $anunturiPePagina, $anunturiPePagina);
-?>  
+?> 
 
 <section class="filterBar">
     <h1>Cautare rapida</h1>
