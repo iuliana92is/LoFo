@@ -7,7 +7,7 @@
     }
 ?> 
 
-<div id="modalAnunt"   >
+<div id="modalAnunt"  class="hidden" >
     <div id="inchideModal"onclick="inchidereModal()">
         <img src="assets/images/icons/close.png">
     </div>
@@ -38,6 +38,7 @@
         <div class="upload">
             <input type="file" name="upload"/> 
         </div>
+        <textarea placeholder="Descriere"></textarea>
     </form>
     <br/>
     </br>
