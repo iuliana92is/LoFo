@@ -52,15 +52,15 @@ article.user #anunturiUtilizator {
     background-image: url('../images/icons/seen.png');
 }
 
-#anunturiUtilizator     {
+#anunturiUtilizator {
     padding-left: 30px;
     line-height: 1.5;
     background-size: 24px 24px;
     background-repeat: no-repeat;
     width: 100%;
     margin-left: 20px;
-    border: none; 
-    outline: none; 
+    border: none;
+    outline: none;
     float: left;
     margin: 10px 0;
     box-sizing: border-box;
@@ -85,7 +85,7 @@ article.user #anunturiUtilizator {
 
 .infoAnunt {
     width: 100%;
-    margin: 10px 0; 
+    margin: 10px 0;
 }
 
 .infoAnunt .placeInfo {
@@ -96,24 +96,23 @@ article.user #anunturiUtilizator {
     box-sizing: border-box;
 }
 
-
- .anuntInfos {
+.anuntInfos {
     width: 25%;
     padding-left: 30px;
     line-height: 1.5;
     background-size: 24px 24px;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     margin-left: 20px;
-    border: none; 
+    border: none;
     outline: none;
     height: 25px;
     float: left;
     margin: 10px 0;
     box-sizing: border-box;
     padding-left: 30px;
- }
+}
 
-.infoAnunt   { 
+.infoAnunt {
     line-height: 1.5;
     background-size: 24px 24px;
     background-repeat: no-repeat;
@@ -127,3 +126,137 @@ article.user #anunturiUtilizator {
     margin: 10px 0;
     box-sizing: border-box;
 }
+
+
+/*#modalAnunt .dateModalAnunt textarea {
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 100px;
+    max-height: 150px;
+    width: 406px;
+    max-width: 406px;
+    border-radius: 4px;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    text-transform: none;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+    color: black;
+    padding: 10px;
+}*/
+
+#modalAnunt {
+    width: 80%;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 6px #f3f3f3, 0 3px 6px #f3f3f3;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2;
+    position: fixed;
+    margin: 0 auto;
+    margin-top: -100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#modalAnunt h1{
+    color: white;
+}
+
+#modalAnunt #inchideModal {
+    float: right;
+}
+
+#modalAnunt .dateModalAnunt,
+#modalAnunt #butoaneModal {
+    width: 100%;
+    text-align: center;
+}
+
+#modalAnunt .dateModalAnunt select.categorie,
+#modalAnunt .dateModalAnunt select.zona,
+#modalAnunt .dateModalAnunt select.culoare,
+#modalAnunt .dateModalAnunt select.stare,
+#modalAnunt .dateModalAnunt input {
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+}
+
+#modalAnunt #butoaneModal button {
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+    background-color: #5BC4BF;
+    color: white;
+}
+
+#modalAnunt #butoaneModal button:nth-child(2) {
+    background-color: #F6A0A1;
+}
+
+#modalAnunt .dateModalAnunt .upload {
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #f3f3f3;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #bdbdbd;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+    background-image: url(../images/icons/update.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#modalAnunt #butoaneModal button:hover {
+    background-color: #ABA5A5;
+    transition: 1s;
+}
+
+#modalAnunt .dateModalAnunt .upload input {
+    display: block !important;
+    width: 100% !important;
+    height: 30px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
