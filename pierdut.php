@@ -42,6 +42,36 @@
     $arrAnunturi = array_slice($arrAnunturi, ($pagina - 1) * $anunturiPePagina, $anunturiPePagina);
 ?> 
 
+<div id="modalSterge" class="hidden">
+    <div id="inchideModal"onclick="inchidereModal()">
+        <img src="assets/images/icons/close.png">
+    </div>
+    <h1> Esti sigur ca vrei sa stergi ?</h1> 
+    <div id="butoaneModal">
+        <button name="daSterge" value="yes" class="daSterge"  >DA</button>
+        <button name="nuSterge" value="no" class="nuSterge" >NU</button>
+    </div>
+</div>
+
+<div id="modalFrauda" >
+    <div id="inchideModal"onclick="inchidereModal()">
+        <img src="assets/images/icons/close.png">
+    </div>
+    <h1> Raporteaza o frauda</h1> 
+    <form class="dateModalAnunt">
+        <input type="text" placeholder="nume"/>
+        <input type="text" placeholder="email"/>  
+        <textarea placeholder="Descriere"></textarea>
+    </form>
+
+    <div id="butoaneModal">
+        <button name="daTrimite" value="yes" class="daTrimite"  >trimite</button>
+        <button name="nuRenunta" value="no" class="nuRenunta" >renunta</button>
+    </div>
+</div>
+
+
+
 <section class="filterBar">
     <h1>Cautare rapida</h1>
     <form>
