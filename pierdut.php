@@ -111,11 +111,12 @@
     <section id="toateAnunturi">
         <div class="tot">
             <ul>
+                <li id="id">ID</li>
                 <li id="categorie-toate">categorie</li>
                 <li id="zona-toate">zona</li>
                 <li id="perioada-toate">perioada</li>
                 <li id="recompensa-toate">obiect/animal</li>
-                <li id="detalii-toate"> detalii</li>
+                <li id="detalii-toate"> detalii</li> 
             </ul>
         </div>
         <div class="clearfix"></div>
@@ -123,11 +124,16 @@
             <?php foreach($arrAnunturi as $anunt) { ?>
             <div class=rand>
                 <ul>
+                <li class="id" ><?php echo $anunt['id'] ?> </li>
                 <li class="categorie" ><?php echo $anunt['categorie'] ?> </li>
                 <li class="zona"> <?php echo $anunt['zona'] ?> </li>
                 <li class="dataPublicarii" > <?php echo $anunt['data_adaugarii'] ?> </li>
                 <li class="obiect/animal" ><?php echo $anunt['nume'] ?></li>
-                <li class="detalii"> <img src="assets/images/icons/down.png" alt="down arrow" onclick="vizualizareDetalii()"/>Detalii</li>
+                <li class="detalii"> 
+                    <img src="assets/images/icons/down.png" alt="down arrow" onclick="vizualizareDetalii()"/>Detalii
+                    <img src="assets/images/icons/frauda.png" alt="raporteaza frauda" onclick="raporteazaFrauda()"/>
+                    <img src="assets/images/icons/sterge.png" alt="stergere" onclick="stergere()"/>
+                </li>
             </ul>
             <!-- details informations -->
             <div class="clearfix"></div>

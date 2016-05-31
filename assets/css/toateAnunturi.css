@@ -1,4 +1,4 @@
-article.toateAnunturi { 
+article.toateAnunturi {
     max-width: 1020px;
     height: auto;
     margin: 0 auto;
@@ -8,27 +8,27 @@ article.toateAnunturi {
     border-top: 1px solid#f3f3f3;
 }
 
-.toateAnunturi #toateAnunturi{
+.toateAnunturi #toateAnunturi {
     width: 100%;
-    height: 100%; 
+    height: 100%;
 }
 
-.toateAnunturi #toateAnunturi .tot{
+.toateAnunturi #toateAnunturi .tot {
     width: 100%;
     box-sizing: border-box;
     background-color: #5BC4BF;
 }
 
-.toateAnunturi #toateAnunturi .tot ul{
+.toateAnunturi #toateAnunturi .tot ul {
     height: 50px;
     text-transform: uppercase;
     width: 100%;
     display: inline-flex;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
-.toateAnunturi #toateAnunturi .tot ul li{
-    width: 20%;
+.toateAnunturi #toateAnunturi .tot ul li {
+    width: 19%;
     border-left: 1px dotted #fff;
     border-right: 1px dotted #fff;
     line-height: 3;
@@ -39,23 +39,34 @@ article.toateAnunturi {
     text-align: center;
 }
 
+.toateAnunturi #toateAnunturi .tot ul li:first-child {
+    width: 5%;
+}
+
 .toateAnunturi #toateAnunturi .listaObiecte {
     width: 100%;
-    height: 100%; 
+    height: 100%;
 }
 
 .toateAnunturi #toateAnunturi .listaObiecte ul {
     width: 100%;
-    height: 100%; 
+    height: 100%;
 }
 
 .toateAnunturi #toateAnunturi .listaObiecte ul li {
-    width: 20%;
+    width: 19%;
     height: 100%;
     float: left;
-    margin : 10px 0;
+    margin: 10px 0;
     box-sizing: border-box;
     padding-left: 5px;
+    line-height: 1.7;
+}
+
+.toateAnunturi #toateAnunturi .listaObiecte ul li:first-child {
+    width: 5%;
+    text-align: center;
+    font-weight: bold;
 }
 
 .toateAnunturi #toateAnunturi .listaObiecte ul li img {
@@ -67,10 +78,10 @@ article.toateAnunturi {
     opacity: 0.7;
 }
 
-.toateAnunturi #toateAnunturi  .listaObiecte .infoText {
+.toateAnunturi #toateAnunturi .listaObiecte .infoText {
     background-color: red;
     width: 100%;
-    height: auto; 
+    height: auto;
     /*display: inline-block;*/
     background-color: rgba(120, 125, 124, 0.2);
     padding: 5px;
@@ -78,40 +89,38 @@ article.toateAnunturi {
     /*display: none;*/
 }
 
-
-.toateAnunturi #toateAnunturi  .listaObiecte .infoText .infoTextObiect {
-    width: 100%; 
+.toateAnunturi #toateAnunturi .listaObiecte .infoText .infoTextObiect {
+    width: 100%;
     display: inline-block;
     box-sizing: border-box;
 }
 
-.toateAnunturi #toateAnunturi .listaObiecte  .infoText .infoTextObiect  .leftText {
+.toateAnunturi #toateAnunturi .listaObiecte .infoText .infoTextObiect .leftText {
     line-height: 2;
     float: left;
     width: 100%;
 }
 
-
-.toateAnunturi #toateAnunturi .listaObiecte  .infoText .infoTextObiect  .leftText p {
+.toateAnunturi #toateAnunturi .listaObiecte .infoText .infoTextObiect .leftText p {
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.toateAnunturi #toateAnunturi  .listaObiecte .infoText .infoTextObiect  .rightText {
+.toateAnunturi #toateAnunturi .listaObiecte .infoText .infoTextObiect .rightText {
     line-height: 2;
     float: left;
     width: 100%;
-}  
+}
 
-.toateAnunturi #toateAnunturi  .listaObiecte .infoText .infoTextImg {
+.toateAnunturi #toateAnunturi .listaObiecte .infoText .infoTextImg {
     width: 100%;
     height: 100%;
     float: right;
     text-align: center;
 }
- 
-.toateAnunturi #toateAnunturi .listaObiecte  .infoText .infoTextImg img {
-    max-width: 70%; 
+
+.toateAnunturi #toateAnunturi .listaObiecte .infoText .infoTextImg img {
+    max-width: 70%;
     height: auto;
     max-height: 500px;
     border: 0;
@@ -121,22 +130,21 @@ article.toateAnunturi {
     box-shadow: 0 3px 6px grey, 0 3px 6px grey;
 }
 
-
-.toateAnunturi #toateAnunturi  .listaObiecte .infoText .infoTextOpen {
+.toateAnunturi #toateAnunturi .listaObiecte .infoText .infoTextOpen {
     width: 100%;
     float: right;
 }
-  
-.toateAnunturi #toateAnunturi  .listaObiecte .infoText .infoTextOpen img {
+
+.toateAnunturi #toateAnunturi .listaObiecte .infoText .infoTextOpen img {
     width: 24px;
     height: 24px;
     padding: 0 6px 12px 0;
     float: right;
 }
 
-.toateAnunturi #toateAnunturi  .listaObiecte .infoText .infoTextOpen img:hover {
+.toateAnunturi #toateAnunturi .listaObiecte .infoText .infoTextOpen img:hover {
     opacity: 0.7;
-} 
+}
 
 .hidden {
     display: none;
@@ -149,26 +157,24 @@ article.toateAnunturi {
 
 /*********************** Responsive Navigation **************************/
 
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1024px) {
 
-}
+/* Large Devices, Wide Screens */
+
+@media only screen and (max-width: 1024px) {}
+
 
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 860px) {
 
-}
+@media only screen and (max-width: 860px) {}
 
-@media only screen and (max-width : 640px) {
-    .toateAnunturi #toateAnunturi .tot ul  {
+@media only screen and (max-width: 640px) {
+    .toateAnunturi #toateAnunturi .tot ul {
         height: 30px;
     }
-
     .toateAnunturi #toateAnunturi .listaObiecte ul li img {
         height: 15px;
         padding: 0 5px 0 0;
     }
-
     .toateAnunturi #toateAnunturi .listaObiecte .infoText .infoTextOpen img {
         width: 15px;
         height: 15px;
