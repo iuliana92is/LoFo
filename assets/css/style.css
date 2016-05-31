@@ -12,6 +12,10 @@
 @import url("paginare.css");
 @import url("export-html.css");
 @import url("modal.css");
+select{
+    cursor: pointer;
+}
+
 html,
 body,
 div,

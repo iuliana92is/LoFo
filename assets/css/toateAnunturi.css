@@ -76,6 +76,7 @@ article.toateAnunturi {
 
 .toateAnunturi #toateAnunturi .listaObiecte ul li img:hover {
     opacity: 0.7;
+    cursor: pointer;
 }
 
 .toateAnunturi #toateAnunturi .listaObiecte .infoText {
@@ -144,6 +145,7 @@ article.toateAnunturi {
 
 .toateAnunturi #toateAnunturi .listaObiecte .infoText .infoTextOpen img:hover {
     opacity: 0.7;
+    cursor: pointer;
 }
 
 .hidden {

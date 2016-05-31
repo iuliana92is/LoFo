@@ -19,6 +19,7 @@
     text-transform: uppercase;
     font-family: 'Josefin Sans', sans-serif;
     outline: none;
+    cursor: pointer;
 }
 
 .exporturi .exportAnunt {

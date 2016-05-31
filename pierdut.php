@@ -53,7 +53,7 @@
     </div>
 </div>
 
-<div id="modalFrauda" >
+<div id="modalFrauda" class="hidden">
     <div id="inchideModal"onclick="inchidereModal()">
         <img src="assets/images/icons/close.png">
     </div>
@@ -63,14 +63,11 @@
         <input type="text" placeholder="email"/>  
         <textarea placeholder="Descriere"></textarea>
     </form>
-
     <div id="butoaneModal">
-        <button name="daTrimite" value="yes" class="daTrimite"  >trimite</button>
-        <button name="nuRenunta" value="no" class="nuRenunta" >renunta</button>
+        <button name="daTrimite" value="yes" class="daTrimite">trimite</button>
+        <button name="nuRenunta" value="no" class="nuRenunta">renunta</button>
     </div>
-</div>
-
-
+</div> 
 
 <section class="filterBar">
     <h1>Cautare rapida</h1>
