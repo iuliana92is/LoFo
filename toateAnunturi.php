@@ -12,7 +12,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="listaObiecte">
-            <div class="rand">
+            <div class=rand>
                 <ul>
                 <li class="categorie" >obiect </li>
                 <li class="zona"> dancu </li>

@@ -16,6 +16,12 @@ switch($_POST["actiune"]) {
 	case "adaugareAnunt":
 		adaugareAnunt();
 		break;
+	case "stergereAnunt":
+		stergereAnunt();
+		break;
+	case "trimiteRaportFrauda":
+		trimiteRaportFrauda();
+		break;
 	default:
 		die("Nu exista aceasta actiune!");
 }
@@ -84,6 +90,7 @@ function autentificare() {
 	$_SESSION['utilizator'] = $utilizator['utilizator'];
 	$_SESSION['email'] = $utilizator['email'];
 	$_SESSION['telefon'] = $utilizator['telefon'];
+	$_SESSION['admin'] = $utilizator['admin'];
 	
 	echo json_encode(array(
 		'succes' => true,
@@ -119,6 +126,54 @@ function adaugareAnunt() {
 			'mesaj' => 'Eroare adaugare anunt!'
 		));
 	}
+}
+
+function stergereAnunt() {
+	$conexiune = $GLOBALS['conexiune'];
+
+	if(!$_POST['idAnunt'] || !$_SESSION['logat'] || !$_SESSION['admin']) {
+		echo json_encode(array(
+			'succes' => false,
+			'mesaj' => 'Nu sunt completate toate informatiile sau nu aveti access la aceasta functionalitate!'
+		));
+		die();
+	}
+
+
+	$sql = "delete from anunturi where id = ?";
+	$query = $conexiune->prepare($sql);
+    $query->bind_param('i', $_POST['idAnunt']);
+    $query->execute();
+
+    echo json_encode(array(
+		'succes' => true,
+		'mesaj' => 'Anuntul a fost sters cu succes!'
+	));
+}
+
+function trimiteRaportFrauda() {
+	$conexiune = $GLOBALS['conexiune'];
+
+	if(!$_POST['idAnunt']) {
+		echo json_encode(array(
+			'succes' => false,
+			'mesaj' => 'Nu a fost identificat anuntul!'
+		));
+		die();
+	}
+
+	$to = "iuliana92ciobanu@gmail.com";
+	$from = $_POST['email'];
+	$subject = "Raportare frauda LoFo";
+	$body = "Id: " . $_POST['idAnunt'] . "\nNume:" . $_POST['nume'] . "\nEmail" . $_POST['email'] . "\nDescriere:" . $_POST['descriere'];
+
+	mail($to, $subject, $body, $from);
+
+	echo json_encode(array(
+		'succes' => true,
+		'mesaj' => 'Frauda raportata cu succes!'
+	));
+	die();
 }
 
 ?>
