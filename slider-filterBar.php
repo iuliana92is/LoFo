@@ -33,11 +33,11 @@
             <option>Ultima saptamana</option>
             <option>Ultima luna</option>
         </select>
-        <select class="predare">
+       <!--  <select class="predare">
             <option disabled="" selected="">Predare</option>
             <option>cu recompensa</option>
             <option>fara recompensa</option>
-        </select>
+        </select> -->
         <button class="search"> search </button>
     </form>
 </section>
