@@ -10,6 +10,7 @@ if(!isset($_SESSION['utilizator'])) {
     $_SESSION['utilizator'] = '';
 }
 
+// datele de configurare a functionarii aplicatiei
 $db_server = "localhost";
 $db_utilizator = "root";
 $db_parola = "";
@@ -17,16 +18,20 @@ $db_nume_db = "lofo";
 
 $conexiune = new mysqli($db_server, $db_utilizator, $db_parola, $db_nume_db);
 
+// eroarea conexiunei la baza de date
 if($conexiune->connect_error) {
     die("Eroare conexiune baza de date");
 }
 
 $GLOBALS['conexiune'] = $conexiune;
+
+// optiunile campului de selectare a categoriei
 $GLOBALS['categorii'] = array(
     'Animale',
     'Obiecte'
 );
 
+// optiunile campului de selectare a zonei
 $GLOBALS['zone'] = array(
     'Pacurari',
     'Dacia',
@@ -48,6 +53,7 @@ $GLOBALS['zone'] = array(
     'Valea lupului'
 );
 
+// optiunile campului de selectare a culorii
 $GLOBALS['culori'] = array(
     'Rosu',
     'Galben',
@@ -62,6 +68,7 @@ $GLOBALS['culori'] = array(
     'Negru'
 );
 
+// optiunile campului de selectare a starii
 $GLOBALS['stari'] = array(
     'Buna',
     'Deteriorat'

@@ -13,7 +13,10 @@
             while($rand = $rezultat->fetch_assoc()) {
                 $arrAnunturi[] = $rand;
             }
-        ?>
+        ?>  
+
+            <!-- in pagina pricipala vor putea fi vizualizate ultimele anunturi create indiferent de tipul lor (gasite/pierdute) 
+            afisarea acestora se va realiza in functie de data la care au fost ele create-->
             <article class="toateAnunturi">
                 <h1>Ultimele anunturi adaugate</h1>
                 <section id="toateAnunturi">
@@ -30,7 +33,7 @@
                     <div class="clearfix"></div>
                     <div class="listaObiecte">
                         <?php foreach($arrAnunturi as $anunt) { ?>
-                        <div class=rand>
+                        <div class="rand">
                             <ul>
                             <li class="id" ><?php echo $anunt['id'] ?> </li>
                             <li class="categorie" ><?php echo $anunt['categorie'] ?> </li>

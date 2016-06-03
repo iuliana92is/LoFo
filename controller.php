@@ -26,7 +26,10 @@ switch($_POST["actiune"]) {
 		die("Nu exista aceasta actiune!");
 }
 
+// functia de inregistrare a unui nou utilizator
 function inregistrare() {
+
+	// realizarea inregistrarii pe baza de nume email nume_user si parola
 	$conexiune = $GLOBALS['conexiune'];
 	if(!$_POST["nume"] || !$_POST["email"] || !$_POST["utilizator"] || !$_POST["parola"]) {
 		echo json_encode(array(
@@ -35,10 +38,11 @@ function inregistrare() {
 		));
 		die();
 	}
-
+	//inregistrarea in baza de date a noului utilizator
 	$sql = "select * from utilizatori where utilizator = '" . mysql_real_escape_string($_POST['utilizator']) . "'";
 	$rezultat = $conexiune->query($sql);
 
+	// verificarea existentei utilizatorului in baza de date
 	if($rezultat->num_rows > 0) {
 		echo json_encode(array(
 			'succes' => false,
@@ -47,6 +51,7 @@ function inregistrare() {
 		die();
 	}
 
+	// adaugarea utilizatorului nou in baza de date 
 	$sql = "insert into utilizatori (utilizator, parola, nume, email, telefon) values ('" . mysql_real_escape_string($_POST['utilizator']) . "', '" . md5(mysql_real_escape_string($_POST['parola'])) . "', '" . mysql_real_escape_string($_POST['nume']) . "', '" . mysql_real_escape_string($_POST['email']) . "', '" . mysql_real_escape_string($_POST['telefon']) . "')";
 	
 	if ($conexiune->query($sql) === TRUE) {
@@ -62,9 +67,12 @@ function inregistrare() {
 	}
 }
 
+
+// functia de autentificare a unui utilizator
 function autentificare() {
 	$conexiune = $GLOBALS['conexiune'];
 
+	//autentificarea se realizeaza pe baza completarii campului de nume_utilizator si parola acestuia de la inregistrarea lui in baza de date
 	if(!$_POST["utilizator"] || !$_POST["parola"]) {
 		echo json_encode(array(
 			'succes' => false,
@@ -73,9 +81,11 @@ function autentificare() {
 		die();
 	}
 
+	//parola este criptata
 	$sql = "select * from utilizatori where utilizator = '" . mysql_real_escape_string($_POST['utilizator']) . "' and parola = '" . md5($_POST['parola']) . "'";
 	$rezultat = $conexiune->query($sql);
 
+	//daca datele nu concid se trimite mesaj de eroare
 	if($rezultat->num_rows != 1) {
 		echo json_encode(array(
 			'succes' => false,
@@ -98,13 +108,18 @@ function autentificare() {
 	));
 }
 
+// functia de adaugare anunt
 function adaugareAnunt() {
 	$conexiune = $GLOBALS['conexiune'];
+
+	//functia de incarcare a imaginii la adaugarea unui nou anunt
+	//imaginea se adauga intr-un director numit "upload"
 	$caleImagine = "";
 	if (isset($_FILES["file"]) && move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $_FILES["file"]["name"])) {
 	    $caleImagine = "uploads/" . $_FILES["file"]["name"];
 	}
 
+	//se verifica completarea tuturor campurilor obligatorii pentru adaugarea unui anunt
 	if(!$_POST['tip'] || !$_POST['categorie'] || !$_POST['zona'] || !$_POST['nume'] || !$_POST['culoare'] || !$_POST['stare']) {
 		echo json_encode(array(
 			'succes' => false,
@@ -113,6 +128,7 @@ function adaugareAnunt() {
 		die();
 	}
 
+	//se inregistreaza anuntul nou in baza de date in caz de succes
 	$sql = "insert into anunturi (tip, utilizator, categorie, zona, nume, culoare, stare, imagine, descriere, data_adaugarii) values ('" . mysql_real_escape_string($_POST['tip']) . "', '" . mysql_real_escape_string($_SESSION['idUtilizator']) . "', '" . mysql_real_escape_string($_POST['categorie']) . "', '" . mysql_real_escape_string($_POST['zona']) . "', '" . mysql_real_escape_string($_POST['nume']) . "', '" . mysql_real_escape_string($_POST['culoare']) . "', '" . mysql_real_escape_string($_POST['stare']) . "', '" . $caleImagine . "', '" . mysql_real_escape_string($_POST['descriere']) . "', '" . date('Y-m-d') . "')";
 
 	if ($conexiune->query($sql) === TRUE) {
@@ -128,9 +144,12 @@ function adaugareAnunt() {
 	}
 }
 
+
+// functia de stergere a unui anunt
 function stergereAnunt() {
 	$conexiune = $GLOBALS['conexiune'];
 
+	//stergerea anuntului se realizeaza doar daca userul de tip "admin" este autentificat
 	if(!$_POST['idAnunt'] || !$_SESSION['logat'] || !$_SESSION['admin']) {
 		echo json_encode(array(
 			'succes' => false,
@@ -139,7 +158,7 @@ function stergereAnunt() {
 		die();
 	}
 
-
+	//anuntul se sterge pe baza identificarii ID-ului acelui anunt
 	$sql = "delete from anunturi where id = ?";
 	$query = $conexiune->prepare($sql);
     $query->bind_param('i', $_POST['idAnunt']);
@@ -151,6 +170,7 @@ function stergereAnunt() {
 	));
 }
 
+// functia de raportare a unei fraude
 function trimiteRaportFrauda() {
 	$conexiune = $GLOBALS['conexiune'];
 
@@ -162,6 +182,9 @@ function trimiteRaportFrauda() {
 		die();
 	}
 
+	// se trimite raportul de frauda prin completarea campurilor modalului respectiv
+	// mesajul ajunge la "iuliana92ciobanu@gmail.com"
+	// mesajul de raportare a fraudei contine nume, email si descriere
 	$to = "iuliana92ciobanu@gmail.com";
 	$from = $_POST['email'];
 	$subject = "Raportare frauda LoFo";

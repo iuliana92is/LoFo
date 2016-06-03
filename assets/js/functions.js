@@ -1,3 +1,4 @@
+//pentru vizualizarea detaliilor unui anunt se va apasa pe sageata verde ce va face vizibila zona de detalii
 function vizualizareDetalii(e) {
     var event = event || window.event;
     var detalii = event.srcElement;
@@ -14,6 +15,7 @@ function vizualizareDetalii(e) {
     detalii.classList.remove("hidden");
 }
 
+//pentru ascunderea detaliilor unui anunt se va apasa pe sageata roz ce va face ascunsa zona de detalii
 function inchidereDetalii(e) {
     var event = event || window.event;
     var detalii = event.srcElement;
@@ -22,6 +24,7 @@ function inchidereDetalii(e) {
     detalii.classList.remove("active");
 }
 
+// pentru a ne inregistra trebuie sa completam capurile definite cu valori
 function inregistrare() {
 	var nume = document.getElementsByName("nume")[0].value;
 	var email = document.getElementsByName("email")[0].value;
@@ -42,6 +45,7 @@ function inregistrare() {
 		}
 	};
 
+	//se realizeaza actiunea de inregistrare si se vor atasa valorile campurilor completate
 	xhttp.open("POST", "controller.php", true);
 	var data = new FormData();
 	data.append("actiune", "inregistare");
@@ -54,6 +58,8 @@ function inregistrare() {
 	return false;
 }
 
+//autentificarea se realizeaza prin completarea celor doua campuri
+datele trebuie sa concida cu cele de lainregistrare
 function autentificare() {
 	var utilizator = document.getElementsByName("utilizator")[0].value;
 	var parola = document.getElementsByName("parola")[0].value;
@@ -71,6 +77,7 @@ function autentificare() {
 		}
 	};
 
+	//se realizeaza actiunea de autentificare si se vor atasa valorile campurilor completate
 	xhttp.open("POST", "controller.php", true);
 	var data = new FormData();
 	data.append("actiune", "autentificare");
@@ -80,6 +87,7 @@ function autentificare() {
 	return false;
 }
 
+//autentificarea se realizeaza prin completarea campurilor specifice
 function adaugareAnunt(tip) {
 	var files = document.getElementById('addUpload').files;
 	var categorie = document.getElementById("addCategorie").value;
@@ -107,7 +115,7 @@ function adaugareAnunt(tip) {
 	if(files.length > 0) {
 		data.append("file", files[0], files[0].name);
 	}
-
+	//noile date din campuri vor fi salvare
 	data.append("actiune", "adaugareAnunt");
 	data.append("tip", tip);
 	data.append("categorie", categorie);
@@ -123,25 +131,29 @@ function adaugareAnunt(tip) {
 
 function exportAnunturi(tip) {
 	var formatExport = document.getElementById("formatExport").value;
-	
+	//vom fi redirectionati catre o pagina noua pentru export
 	window.open("export.php?tip=" + tip + "&formatExport=" + formatExport, "_blank");
 }
 
+// functia de deschidere a modalului pentru stergerea unui anunt
 function deschideModalStergere(idAnunt) {
 	document.getElementById("idAnuntStergere").value = idAnunt;
 	document.getElementById("modalSterge").classList.remove("hidden");
 }
 
+// functia de inchidere a modalului pentru stergerea unui anunt
 function inchidereModalStergere() {
 	document.getElementById("idAnuntStergere").value = "";
 	document.getElementById("modalSterge").classList.add("hidden");
 }
 
+// functia de deschidere a modalului pentru raportearea unei fraude
 function deschideModalFrauda(idAnunt) {
 	document.getElementById("idAnuntFrauda").value = idAnunt;
 	document.getElementById("modalFrauda").classList.remove("hidden");
 }
 
+// functia de inchidere a modalului pentru raportearea unei fraude
 function inchidereModalFrauda() {
 	document.getElementById("idAnuntFrauda").value = "";
 	document.getElementById("numeFrauda").value = "";
@@ -150,6 +162,7 @@ function inchidereModalFrauda() {
 	document.getElementById("modalFrauda").classList.add("hidden");
 }
 
+// apasarea butonului a confirmarii stergerii unui anunt
 function confirmareStegere() {
 	var idAnunt = document.getElementById("idAnuntStergere").value;
 
@@ -166,6 +179,7 @@ function confirmareStegere() {
 		}
 	};
 
+	//se va realiza actiunea de stergere 
 	xhttp.open("POST", "controller.php", true);
 	var data = new FormData();
 	data.append("actiune", "stergereAnunt");
@@ -174,6 +188,7 @@ function confirmareStegere() {
 	return false;
 }
 
+//functia de raportarea a ueni fraude
 function trimiteRaportFrauda() {
 	var idAnunt = document.getElementById("idAnuntFrauda").value;
 	var nume = document.getElementById("numeFrauda").value;
@@ -193,6 +208,7 @@ function trimiteRaportFrauda() {
 		}
 	};
 
+	//se vor trimite datele completate pentru a raporta frauda
 	xhttp.open("POST", "controller.php", true);
 	var data = new FormData();
 	data.append("actiune", "trimiteRaportFrauda");

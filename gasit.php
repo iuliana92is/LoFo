@@ -2,6 +2,9 @@
             $titlu = "Gasite";
             include "header.php";
 
+            // paginarea anunturilor 
+            // afisarea lor va fi facuta in numar de cate 10//
+            // la depasirea limitei de 10 anunturi se va adauga o pagina noua ce va fi pupulata cu urmatoarele minim 10 anunturi
             $conexiune = $GLOBALS['conexiune'];
             $pagina = isset($_GET['pagina']) && $_GET['pagina'] ? $_GET['pagina'] : 1;
             $anunturiPePagina = 10; 
@@ -13,6 +16,8 @@
 
             $rezultat = $query->get_result();
             
+            // zona de cautare avansata
+            // se poate realiza prin completarea spatiilor definite si la sfarsit prin apasarea butonului "search"
             $arrAnunturi = array();
             while($rand = $rezultat->fetch_assoc()) {
                 $cautare = true;
@@ -42,6 +47,7 @@
             $arrAnunturi = array_slice($arrAnunturi, ($pagina - 1) * $anunturiPePagina, $anunturiPePagina);
         ?>
 
+        <!-- realizarea unui modal care se deschide atunci cand apasam pe butonul de stergere anunt -->
         <div id="modalSterge" class="hidden">
             <input type="hidden" id="idAnuntStergere"/>
             <div id="inchideModal" onclick="inchidereModalStergere()">
@@ -54,6 +60,7 @@
             </div>
         </div>
 
+        <!-- realizarea unui modal care se deschide atunci cand apasam pe butonul de raportare a unei fraude pe un anumit anunt -->
         <div id="modalFrauda" class="hidden">
             <input type="hidden" id="idAnuntFrauda"/>
             <div id="inchideModal"onclick="inchidereModalFrauda()">
@@ -71,6 +78,8 @@
             </div>
         </div>
 
+      <!--   zona de cautare avansata
+        se poate realiza prin completarea spatiilor definite si la sfarsit prin apasarea butonului "search" -->
         <section class="filterBar">
             <h1>Cautare rapida</h1>
             <form method="GET">
@@ -102,6 +111,8 @@
             </form>
         </section>
 
+        <!-- doar in cazul in care un user este autentificat se poate realiza functionalitatea de adaugare a unui nou anunt
+        se vor completa campurile predefinite adaugarii unui anunt GASIT-->
         <?php if($_SESSION['logat']) { ?>
             <form id="formFound" method="POST" action="" onsubmit="return adaugareAnunt('gasit');" name="myForm" >
                 <div id="formFoundField">
@@ -147,6 +158,8 @@
             </form>
         <?php } ?>
         
+        <!-- tabelul anunturilor gasite  
+        se vor completa campurile cu datele caracteristice acestora pentru adaugarea unui nou anunt-->
         <article class="toateAnunturi">
             <h1>Anunturile cu obiectele gasite</h1>
             <section id="toateAnunturi">
@@ -241,6 +254,8 @@
                     </div>
                     <?php } ?>
                 </div>
+
+                <!-- in functie de numarul de anunturi va fi afisata si paginarea -->
                 <ul class="pagini">
                     <?php for($i = 1; $i <= $nrPagini; $i++) { ?>
                         <li <?php if($i == $pagina) echo 'class="active"' ?>><a href="?pagina=<?php echo $i ?>"><?php echo $i ?></a></li>
@@ -248,6 +263,8 @@
                 </ul>
                 <div class="clearfix"></div>
 
+                <!-- zona de export este construita dintr-un select cu 4 tipuri 
+                la actionarea butonului "export" se va realiza exportul in acel format selectat -->
                 <div class="exporturi">
                     <select id="formatExport">
                         <option value="html">HTML</option>

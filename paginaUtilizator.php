@@ -2,11 +2,18 @@
             $title = "Pagina utilizator";
             include "header.php";
 
+            //doar  in cazul autentificarii se poate ajunge la pagina de utilizator
+            //butonul de redirectionare catre pagina de profil al utilizatorului este activ doar dupa ce se face autentificarea
             if(!$_SESSION['logat']) {
+                //vom fi directionati catre autentificare pentru completarea campurilor specifice
                 header('Location: autentificare.php');
             }
         ?> 
         
+       <!--  pentru editarea unui anunt ce apartine utilizatorului autentificat se va apasa butonul de editare
+        acesta poate modifica datele introduse in momentul in care a dorit sa adauge un nou anunt
+        modalul se va deschide doar la apasarea butoului de editare
+        noile date completate le vor suprascrie pe cele vechi -->
         <div id="modalAnunt"  class="hidden" >
             <div id="inchideModal"onclick="inchidereModal()">
                 <img src="assets/images/icons/close.png">
@@ -48,6 +55,8 @@
             </div>
         </div>
 
+        <!-- zona alocata datelor userului autentificat
+        se vor prelua datele din baza de date si vor fi afisate la profilul acestuia in campurile predefinite -->
         <article class="user">
             <h1>Nume User:</h1>
 
@@ -80,6 +89,9 @@
                 <p>Lista anunturilor postate de mine:</p>
             </div>
             <br />
+
+            zona anunturilor create de utilizatorul autentificat
+            el va avea ca si optiuni: vizualizarea anuntului, editarea si stergerea acestuia
             <section id="anunturiUtilizator"> 
                 <ul class="infoAnunt">
                      <li class="  anuntInfos anuntulMeu"> nume anunt 1</li>

@@ -11,12 +11,7 @@
                 <button type="reset" class="btn-cancel">Renunta</button>
             </div>
         </form> 
-        <?php
-            include "ultimeleAnunturi.php";
-            ?> 
-        <?php
-            include "vizualizateAnunturi.php";
-            ?>  
+        
         <?php
             include "footer.php";
         ?>

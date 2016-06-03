@@ -3,6 +3,8 @@
     include "header.php";
 ?>
 
+<!-- formularul de inregistrare consta in completarea campurilor specifice
+se face pe baza adaugarii unui nume si prenume, adresei de emai, numele de utilizator, parolei si numarului de telefon -->
 <form id="formRegister" method="POST" action="" onsubmit="return inregistrare();" name="myForm" >
     <div id="formRegisterField"> 
         <input type="text" name="nume" placeholder="Nume si prenume" required />
