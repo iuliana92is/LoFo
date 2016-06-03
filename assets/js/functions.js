@@ -59,7 +59,7 @@ function inregistrare() {
 }
 
 //autentificarea se realizeaza prin completarea celor doua campuri
-datele trebuie sa concida cu cele de lainregistrare
+//datele trebuie sa concida cu cele de lainregistrare
 function autentificare() {
 	var utilizator = document.getElementsByName("utilizator")[0].value;
 	var parola = document.getElementsByName("parola")[0].value;
