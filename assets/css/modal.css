@@ -1,0 +1,221 @@
+/*modal sterge frauda*/
+
+#modalSterge {
+    width: 80%;
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 6px #f3f3f3, 0 3px 6px #f3f3f3;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2;
+    position: fixed;
+    margin: 0 auto;
+    margin-top: -100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#modalSterge h1 {
+    color: white;
+    text-align: center;
+}
+
+#modalSterge #inchideModal {
+    text-align: right;
+}
+
+#modalSterge #butoaneModal button {
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 49%;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+    background-color: #5BC4BF;
+    color: white;
+}
+
+#modalSterge #butoaneModal button:nth-child(2) {
+    background-color: #F6A0A1;
+}
+
+#modalSterge #butoaneModal button:hover {
+    background-color: #ABA5A5;
+    transition: 1s;
+}
+
+
+/*********************** Responsive Navigation **************************/
+
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (max-width: 1024px) {}
+
+
+/* Medium Devices, Desktops */
+
+@media only screen and (max-width: 860px) {}
+
+@media only screen and (max-width: 640px) {
+    #modalSterge #butoaneModal button {
+        height: 30px;
+        width: 49%;
+    }
+    #modalSterge {
+        margin-top: -200px;
+    }
+}
+
+
+/* Small Devices, Tablets */
+
+@media only screen and (max-width: 480px) {
+    #modalSterge #butoaneModal button {
+        height: 30px;
+        width: 100%;
+        margin: 5px 0;
+    }
+    #modalSterge {
+        margin-top: -150px;
+    }
+}
+
+/*==============================================================================*/
+/*modal raporteaza o  frauda*/
+
+#modalFrauda {
+    width: 80%;
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 6px #f3f3f3, 0 3px 6px #f3f3f3;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2;
+    position: fixed;
+    margin: 0 auto;
+    margin-top: -200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#modalFrauda h1 {
+    color: white;
+    text-align: center;
+}
+
+#modalFrauda #inchideModal {
+    text-align: right;
+}
+
+#modalFrauda #butoaneModal button {
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 49%;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+    background-color: #5BC4BF;
+    color: white;
+}
+
+#modalFrauda .dateModalAnunt input {
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 49%;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+}
+
+#modalFrauda .dateModalAnunt textarea {
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 80px; 
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none; 
+    width: 100%;
+}
+
+#modalFrauda #butoaneModal button:nth-child(2) {
+    background-color: #F6A0A1;
+}
+
+#modalFrauda #butoaneModal button:hover {
+    background-color: #ABA5A5;
+    transition: 1s;
+}
+
+
+/*********************** Responsive Navigation **************************/
+
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (max-width: 1024px) {}
+
+
+/* Medium Devices, Desktops */
+
+@media only screen and (max-width: 860px) {}
+
+@media only screen and (max-width: 640px) {
+    #modalFrauda #butoaneModal button {
+        height: 30px;
+        width: 49%;
+    }
+    #modalFrauda {
+        margin-top: -200px;
+    }
+    #modalFrauda .dateModalAnunt input {
+        height: 30px;
+        width: 49%;
+    }
+}
+
+
+/* Small Devices, Tablets */
+
+@media only screen and (max-width: 480px) {
+    #modalFrauda #butoaneModal button {
+        height: 30px;
+        width: 100%;
+        margin: 5px 0;
+    }
+    #modalFrauda {
+        margin-top: -150px;
+    }
+    #modalFrauda .dateModalAnunt input {
+        height: 30px;
+        width: 100%;
+        margin: 5px 0;
+    }
+}

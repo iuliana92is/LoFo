@@ -1,206 +1,233 @@
-<!DOCTYPE html> 
-<html lang="en-GB"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html>
+<html lang="en-GB">
 
-	<meta name="viewport" content="width=device-width">
-	<title>Raport Proiect Lost and Found - Tehnologii web</title>
-	<link rel="stylesheet" href="css/scholarly.css">
-	<link rel="stylesheet" href="css/prism-coy.css">
-	<script src="./BoW_files/prism.js" defer=""></script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Raport Proiect Lost and Found - Tehnologii web</title>
+    <link rel="stylesheet" href="css/scholarly.css">
+    <link rel="stylesheet" href="css/prism-coy.css">
+    <script src="./BoW_files/prism.js" defer=""></script>
 </head>
+
 <body prefix="schema: http://schema.org/ xsd: http://www.w3.org/2001/XMLSchema# sa: https://ns.science.ai/">
-<header>
-	<p class="title">LoFo</p>
-	<p class="subtitle">Lost And Found</p>
-</header>
-	<article id="what" typeof="schema:ScholarlyArticle" resource="#">
-		<h1>Lost And Found</h1>
-		<section>
-			<ol>
-				<li property="schema:author" typeof="sa:ContributorRole">
-					<a property="schema:author" href="https://www.facebook.com/iuliana92is" typeof="schema:Person">
-						<span property="schema:givenName">Iuliana</span>
-						<span property="schema:familyName">Ciobanu</span>
-					</a>
-				</li>
-				<li property="schema:contributor" typeof="sa:ContributorRole">
-					<a property="schema:contributor" href="https://www.facebook.com/mrsuuuu" typeof="schema:Person">
-						<span property="schema:givenName">Mihai</span>
-						<span property="schema:familyName">Murarasu</span>
-					</a>
-				</li> 
-			</ol>
-		</section>
+    <header>
+        <p class="title">LoFo</p>
+        <p class="subtitle">Lost And Found</p>
+    </header>
+    <article id="what" typeof="schema:ScholarlyArticle" resource="#">
+        <h1>Lost And Found</h1>
+        <section>
+            <ol>
+                <li property="schema:author" typeof="sa:ContributorRole">
+                    <a property="schema:author" href="https://www.facebook.com/iuliana92is" typeof="schema:Person">
+                        <span property="schema:givenName">Iuliana</span>
+                        <span property="schema:familyName">Ciobanu</span>
+                    </a>
+                </li>
+                <li property="schema:contributor" typeof="sa:ContributorRole">
+                    <a property="schema:contributor" href="https://www.facebook.com/mrsuuuu" typeof="schema:Person">
+                        <span property="schema:givenName">Mihai</span>
+                        <span property="schema:familyName">Murarasu</span>
+                    </a>
+                </li>
+            </ol>
+        </section>
+        <section>
+            <h3>Cuprins:</h3>
+            <ol>
+                <li><a href="#descriere">Descriere</a></li>
+                <li><a href="#tehnologii">Tehnologii Folosite</a></li>
+                <li><a href="#bazadate">Structura Bazei de Date</a></li>
+                <li><a href="#site">Structura Aplicatiei web</a></li>
+                <li><a href="#bibliografie">Bibliografie</a></li>
+            </ol>
+        </section>
+        <section typeof="sa:Abstract">
+            <a name="descriere"></a>
+            <h3>Descriere</h3>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Acest proiect care ca rol esential dezvoltarea unui site, care va gestiona informatiile legate de obiectele/animalele gasite sau pierdute de catre anumite persoane (utilizatori). Anunturile vor putea fi adaugate, editate sau sterse.</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Aceasta aplicatie web va permite fiecarui utiliazator sa se inregistreze sau autentifice, avand drepturi de creare, editare si vizualizare a anunturilor. Fiecare membru are drepturi depline asupra anuntului publicat de el si doar de vizualizare a anunturilor create de catre alte persoane inregistrate.</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Fiecare anunt contine un camp pentru categorie, zona, perioada, inapoiere si detalii. Detaliile vor putea fi accesate la apasarea unui buton care face ca detaliile sa fie vizibile. Acestea constau in campuri pentru a determina culoarea, starea obiectului gasit sau pierdut si alte detalii caracteristice obiectului/animalului. Totodata putem adauga daca dorim sau nu o imagine sau mai multe, acest camp nefiind obligatoriu. </p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Toti utilizatorii vor putea folosi filtrele de cautare in functie de categorie, zona sau alte campuri. Ca si exemplu, daca am pierdut un telefon si vrem mai intai sa cautam obliectul in lista celor pierdute, putem selecta la categorie "obiect", zona "alexandru" si astfel vom putea vedea toate anunturile care contin obiecte pierdute doar in zona alexandru.</p>
+        </section>
+        <section typeof="sa:Results">
+            <a name="tehnologii"></a>
+            <h3>Tehnologii Folosite</h3>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;In realizarea acestui proiect am folosit urmatoarele tehnologii:</p>
+            <ul>
+                <li>HTML5/CSS3: acestea sunt folosite pentru realizarea structurii aplicatiei si stilizarea ei intr-o maniera optima si un design simplu si accesibil. </li>
+                <li>PHP și JavaScript: acestea sunt folosite pentru a adauga functionalitate si mobilitate aplicatiei noastre, de exeplu: folosirea lor pentru autentificare, pentru vizializare detalii, filtrarea datelor, etc.
+                </li>
+                <li>MySQL: un sistem de baze de date </li>
+            </ul>
+        </section>
+        <section typeof="sa:Results">
+            <a name="bazadate"></a>
+            <h3>Baza de date</h3>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Baza de date memoreaza toate anunturile realizate de utilizatori cat si datele utilizatorilor inregistrati. Vor fi realizate doua tabele in acest scop. Astfel, una va fi denumita <code>Utilizator</code>, pentru a salva inregistrarile realizate de utilizatori si o alta tabela denumita <code>Anunturi</code>, ce are rolul de a retine toate anunturile realizate de catre utilizator</p>
+            <figure typeof="schema:Table">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Utilizator</td>
+                            <td>Anunturi</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>ID</code></td>
+                            <td><code>Nume</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>User</code></td>
+                            <td><code>Email</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>Password</code></td>
+                            <td><code>Telefon</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>Phone:</code></td>
+                            <td><code>Categorie</code></td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td><code>Zona</code></td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td><code>Cuvant cheie</code></td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td><code>Predare</code></td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td><code>Culoare</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Orice utilizator autentificat va avea un ID cat si un nume pentru a putea fi recunoscut, parola si un numar de telefon care va fi optional. </p>
+        </section>
+        <section typeof="sa:Results">
+            <a name="site"></a>
+            <h3>Structura Aplicatiei Web</h3>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Aplicatia este realizata prin integrarea a 6 pagini. Una va fi cea de baza(index) si cate una pentru autentificare, inregistrare, obiecte pierdute si obiecte gasite.</p>
+            <figure typeof="sa:Image">
+                <center>
+                    <p><img src="images/index.JPG" alt="Pagina Principala" width="40%" /></p>
+                </center>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Pagina Principala <code>Index/Home</code>,este pagina ce contine toate elementele necesare navigarii.
+                <br/> &nbsp;&nbsp;&nbsp;&nbsp;Initial se pot vizualiza <code>ultimele 10 anunturi adaugate</code>. </p>
+            <figure typeof="sa:Image">
+                <center>
+                    <p><img src="images/inregistrare.JPG" alt="Inregistrare" width="40%" /></p>
+                </center>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Pentru a putea introduce si vizualiza anunturile este nevoie de <code>inregistrare</code> prin completarea campurilor speciale. </p>
+            <figure typeof="sa:Image">
+                <center>
+                    <p><img src="images/autentificare.JPG" alt="autentificare" width="40%" /></p>
+                </center>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Daca suntem deja inregistrati in baza de date ca si utilizatori, atunci este necesara doar partea de <code>autentificare</code> prin completarea campurilor afisate. </p>
+            <figure typeof="sa:Image">
+                <center>
+                    <p><img src="images/pierdut.JPG" alt="pierdute" width="40%" /></p>
+                </center>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Dupa inregistrare/autentificare, putem naviga pe pagina ce contine anunturi despre obiectele <code>Pierdute</code> . Acolo putem cauta prin parcurgerea tuturor anunturilor sau prin introducerea unui nou anunt prin care se va specifica ce anume s-a pierdut, completand campurile speciale.</p>
+            <figure typeof="sa:Image">
+                <center>
+                    <p><img src="images/gasit.JPG" alt="gasite" width="40%" /></p>
+                </center>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Dupa inregistrare/autentificare, putem naviga pe pagina ce contine anunturi despre obiectele <code>Gasite</code>. Acolo putem cauta prin parcurgerea tuturor anunturilor sau prin introducerea unui nou anunt prin care se va specifica ce anume s-a gasit, completand campurile speciale.</p>
+            <br/>
+            <br/>
+            <br/>
 
-		<section>
-			<h3>Cuprins:</h3>
-			<ol>
-				<li><a href="#descriere">Descriere</a></li>
-				<li><a href="#tehnologii">Tehnologii Folosite</a></li>
-				<li><a href="#bazadate">Structura Bazei de Date</a></li>
-				<li><a href="#site">Structura Aplicatiei web</a></li>
-				<li><a href="#bibliografie">Bibliografie</a></li>
-			</ol>
-		</section>
-	
-		<section typeof="sa:Abstract">
-		<a name="descriere"></a>
-		<h3>Descriere</h3>
+            <figure typeof="sa:Image">
+                <center>
+                    <p><img src="images/export.JPG" alt="export" width="40%" /></p>
+                </center>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Pentru fiecare pagina de "gasit" sau "pierdut" am implementat elementele de <code>export</code> si <code>paginare</code> sub fiecare tabel cu anunturi. Pentru functionalitatea de <code>export</code> avem optiunea de a selecta 4 tipuri de formate: HTML, JSON, PDF si CSV.</p>
 
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Acest proiect care ca rol esential dezvoltarea unui site, care va gestiona informatiile legate de obiectele/animalele gasite sau pierdute de catre anumite persoane (utilizatori). Anunturile vor putea fi adaugate, editate sau sterse.</p>
+            <figure typeof="sa:Image">
+                <center>
+                    <p><img src="images/meniu.JPG" alt="meniu" width="40%" /></p>
+                </center>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;<code>Meniul</code> este constantsi se regaseste in fiecare dintre cele 5 pagini.</p>
+            <ol>
+                <li>Home – va face trimiterea către pagina principala apasand pe Logo.</li>
+                <li>Inregistrare – va face trimiterea către pagina pe care se vor face inregistrarile in baza de date ale utilizatorului nou prin completarea campurilor specifice.</li>
+                <li>Autentificare – va face trimiterea către pagina pe care ne vom putrea autentifica daca avem deja un cont creat in baza de date nemifiind nevoie sa facem un alt cont nou.</li>
+                <li>Pierdut – va face trimiterea către pagina in care vom regasi anunturi despre obiecte pierdute si se vor putea adauga anunturi noi cu obiectele ce au fost pierdute.</li>
+                <li>Gasit – va face trimiterea către pagina in care vom regasi anunturi despre obiecte gasite si se vor putea adauga anunturi noi cu obiectele ce au fost gasite.</li>
+            </ol>
 
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Aceasta aplicatie web va permite fiecarui utiliazator sa se inregistreze sau autentifice, avand drepturi de creare, editare si vizualizare a anunturilor. Fiecare membru are drepturi depline asupra anuntului publicat de el si doar de vizualizare a anunturilor create de catre alte persoane inregistrate.</p>
+            <figure typeof="sa:Image">
+                <center>
+                    <p><img src="images/meniu2.JPG" alt="meniu2" width="40%" /></p>
+                </center>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Dupa inregistrarea utilizatorului, butonul de "inregistrare se va schimba in "nume_user - PROFIL" iar cel de " autentificare" in "logout".</p>
 
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Fiecare anunt contine un camp pentru categorie, zona, perioada, inapoiere si detalii. Detaliile vor putea fi accesate la apasarea unui buton care face ca detaliile sa fie vizibile. Acestea constau in campuri pentru a determina culoarea, starea obiectului gasit sau pierdut si alte detalii caracteristice obiectului/animalului. Totodata putem adauga daca dorim sau nu o imagine sau mai multe, acest camp nefiind obligatoriu.  </p>
 
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Toti utilizatorii vor putea folosi filtrele de cautare in functie de categorie, zona sau alte campuri. Ca si exemplu, daca am pierdut un telefon si vrem mai intai sa cautam obliectul in lista celor pierdute, putem selecta la categorie "obiect", zona "alexandru" si astfel vom putea vedea toate anunturile care contin obiecte pierdute doar in zona alexandru.</p>
-		</section>
-		
-		<section typeof="sa:Results">
-		<a name="tehnologii"></a>
-		<h3>Tehnologii Folosite</h3>
+            <figure typeof="sa:Image">
+                <center>
+                    <p><img src="images/user.JPG" alt="user" width="40%" /></p>
+                </center>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;<code>Pagina utilizatorului</code>  este activa doar dupa autentificare. Aceasta contine o sectiune cu datele de la inregistarre ale userului iar apoi o sectiune cu lista anunturilor postate de acel user  inregistrat. Acesta va avea voie sa editeze, sa elimine si sa vizualizeze anunturile sale.</p>
 
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;In realizarea acestui proiect am folosit urmatoarele tehnologii:</p>
+            <figure typeof="sa:Image">
+                <center>
+                    <p><img src="images/editare.JPG" alt="editare" width="40%" /></p>
+                </center>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;La accesarea optiunii de <code>Editare</code> din pagina utilizatorului, se va deschide un modal in care vom putea edita campurile predefinite la fel ca cele de la adaugarea unui nou anunt.</p>
 
-		<ul>
-			<li>HTML5/CSS3: acestea sunt folosite pentru realizarea structurii aplicatiei si stilizarea ei intr-o maniera optima si un design simplu si accesibil. </li>
-			<li>PHP și JavaScript: acestea sunt folosite pentru a adauga functionalitate si mobilitate aplicatiei noastre, de exeplu: folosirea lor pentru autentificare, pentru vizializare detalii, filtrarea datelor, etc.  
-			</li>
-			<li>MySQL: un sistem de baze de date </li>
-		</ul>
-		</section>
+            <figure typeof="sa:Image">
+                <center>
+                    <p><img src="images/eliminare.JPG" alt="eliminare" width="40%" /></p>
+                </center>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;La accesarea optiunii de <code>Eliminare</code> din pagina utilizatorului, se va deschide un modal in care vom putea sterge anuntul selectat</p>
 
-		<section typeof="sa:Results">
-		<a name="bazadate"></a>
-		<h3>Baza de date</h3>
+            <figure typeof="sa:Image">
+                <center>
+                    <p><img src="images/vizualizare.JPG" alt="vizualizare" width="40%" /></p>
+                </center>
+            </figure>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;La accesarea optiunii de <code>Vizualizare</code> din pagina utilizatorului, se va deschide un modal in care vom putea vizualiza campurile predefinite cu datele introduse la crearea lui initiala.</p>
 
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Baza de date memoreaza toate anunturile realizate de utilizatori cat si datele utilizatorilor inregistrati.
-		Vor fi realizate doua tabele in acest scop. Astfel, una va fi denumita <code>Utilizator</code>, pentru a salva inregistrarile realizate de utilizatori si o alta tabela denumita <code>Anunturi</code>, ce are rolul de a retine toate anunturile realizate de catre utilizator</p>
- 
-		<figure typeof="schema:Table">
-            <table> 
-              <thead>
-                <tr>
-                  <td>Utilizator</td>
-                  <td>Anunturi</td> 
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>ID</code></td>
-                  <td><code>Nume</code></td> 
-                </tr>
-                <tr>
-                  <td><code>User</code></td>
-                  <td><code>Email</code></td> 
-                </tr>
-                <tr>
-                  <td><code>Password</code></td>
-                  <td><code>Telefon</code></td> 
-                </tr>
-                <tr>
-                  <td><code>Phone:</code></td>
-                  <td><code>Categorie</code></td> 
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code>Zona</code></td> 
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code>Cuvant cheie</code></td> 
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code>Predare</code></td> 
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code>Culoare</code></td> 
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code>Stare</code></td> 
-                </tr>
-              </tbody>
-            </table>
-          </figure> 
-
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Orice utilizator autentificat va avea un ID cat si un nume pentru a putea fi recunoscut, parola si un numar de telefon care va fi optional. </p> 
-		</section>
-
-		<section typeof="sa:Results">
-		<a name="site"></a>
-		<h3>Structura Aplicatiei Web</h3>
-
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Aplicatia este realizata prin integrarea a 5 pagini. Una va fi cea de baza(index) si cate una pentru autentificare, inregistrare, obiecte pierdute si obiecte gasite</p>
-
-		<figure typeof="sa:Image">
-		<center><p><img src="images/index.JPG" alt="Pagina Principala" width="40%"/></p></center>
-		</figure>
-
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Pagina Principala <code>Index/Home</code>,este pagina ce contine toate elementele necesare navigarii.<br/> &nbsp;&nbsp;&nbsp;&nbsp;Initial se pot vizualiza <code>ultimele 3 anunturi vizualizare</code> si <code>ultimele 3 anunturile adaugate</code>. </p>
-
-		<figure typeof="sa:Image">
-		<center><p><img src="images/inregistrare.JPG" alt="Inregistrare" width="40%"/></p></center>
-		</figure>
-
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Pentru a putea introduce si vizualiza anunturile este nevoie de <code>inregistrare</code> prin completarea campurilor speciale. </p>
-
-		<figure typeof="sa:Image">
-		<center><p><img src="images/autentificare.JPG" alt="autentificare" width="40%"/></p></center>
-		</figure>
-
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Daca suntem deja inregistrati in baza de date ca si utilizatori, atunci este necesara doar partea de <code>autentificare</code> prin completarea campurilor afisate. </p>
-
-		<figure typeof="sa:Image">
-		<center><p><img src="images/pierdut.JPG" alt="pierdute" width="40%"/></p></center>
-		</figure>
-		
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Dupa inregistrare/autentificare, putem naviga pe pagina ce contine anunturi despre obiectele <code>Pierdute</code>  . Acolo putem cauta prin parcurgerea tuturor anunturilor sau prin introducerea unui nou anunt prin care se va specifica ce anume s-a pierdut, completand campurile speciale.</p>
-		
-		<figure typeof="sa:Image">
-		<center><p><img src="images/gasit.JPG" alt="gasite" width="40%"/></p></center>
-		</figure>
-		
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Dupa inregistrare/autentificare, putem naviga pe pagina ce contine anunturi despre obiectele  <code>Gasite</code>. Acolo putem cauta prin parcurgerea tuturor anunturilor sau prin introducerea unui nou anunt prin care se va specifica ce anume s-a gasit, completand campurile speciale.</p>
-
-		
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;Meniul este constantsi se regaseste in fiecare dintre cele 5 pagini.</p>
-
-		<ol>
-			<li>Home – va face trimiterea către pagina principala apasand pe Logo.</li>
-
-			<li>Inregistrare – va face trimiterea către pagina pe care se vor face inregistrarile in baza de date ale utilizatorului nou prin completarea campurilor specifice.</li>
-
-			<li>Autentificare – va face trimiterea către pagina pe care ne vom putrea autentifica daca avem deja un cont creat in baza de date nemifiind nevoie sa facem un alt cont nou.</li>
-
-			<li>Pierdut – va face trimiterea către pagina in care vom regasi anunturi despre obiecte pierdute si se vor putea adauga anunturi noi cu obiectele ce au fost pierdute.</li>
-
-			<li>Gasit – va face trimiterea către pagina in care vom regasi anunturi despre obiecte gasite si se vor putea adauga anunturi noi cu obiectele ce au fost gasite.</li> 
-			 
-		</ol>
-		</section>
-
-		<section typeof="sa:ReferenceList">
-		<a name="bibliografie"></a>
-		<h3>Bibliografie</h3>
-
-		<ul>
-			<li>Link: <a href="https://www.codecademy.com/">https://www.codecademy.com/</a></li>
-			<li>Link: <a href="http://www.w3schools.com/">http://www.w3schools.com/</a></li>
-			<li>Link: <a href="http://code.tutsplus.com/tutorials/ ">http://code.tutsplus.com/tutorials </a></li>  
-			<li>Link: <a href="http://www.tutorialspoint.com/php/ ">http://www.tutorialspoint.com/php/ </a></li>  
-			<li>Link: <a href="http://www.html5andcss3.org/ ">http://www.html5andcss3.org/</a></li> 
-		</ul>
-		</section>
-	</article>
+        </section>
+        <section typeof="sa:ReferenceList">
+            <a name="bibliografie"></a>
+            <h3>Bibliografie</h3>
+            <ul>
+                <li>Link: <a href="https://www.codecademy.com/">https://www.codecademy.com/</a></li>
+                <li>Link: <a href="http://www.w3schools.com/">http://www.w3schools.com/</a></li>
+                <li>Link: <a href="http://code.tutsplus.com/tutorials/ ">http://code.tutsplus.com/tutorials </a></li>
+                <li>Link: <a href="http://www.tutorialspoint.com/php/ ">http://www.tutorialspoint.com/php/ </a></li>
+                <li>Link: <a href="http://www.html5andcss3.org/ ">http://www.html5andcss3.org/</a></li>
+            </ul>
+        </section>
+    </article>
     <footer>
-      <p>
-        <a href="http://www.info.uaic.ro/bin/Main/">Facultatea de informatica Iasi - Al. I. Cuza</a>
-		•
-        <a href="http://profs.info.uaic.ro/~busaco/teach/courses/web/">Tehnologii Web</a>
-        •
-		 <a href="http://profs.info.uaic.ro/~busaco/teach/courses/web/projects/xml-transform.php?pag=projects">Proiecte</a>
-      </p>
+        <p>
+            <a href="http://www.info.uaic.ro/bin/Main/">Facultatea de informatica Iasi - Al. I. Cuza</a> •
+            <a href="http://profs.info.uaic.ro/~busaco/teach/courses/web/">Tehnologii Web</a> •
+            <a href="http://profs.info.uaic.ro/~busaco/teach/courses/web/projects/xml-transform.php?pag=projects">Proiecte</a>
+        </p>
     </footer>
-</body></html>
+</body>
+
+</html>

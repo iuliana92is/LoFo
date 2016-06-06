@@ -1,0 +1,90 @@
+.exporturi {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.exporturi #formatExport {
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+    cursor: pointer;
+}
+
+.exporturi .exportAnunt {
+    border-right-style: none;
+    border-bottom-style: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+    font-family: Lato;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+    background-color: #5BC4BF;
+    color: white;
+}
+
+.exporturi .exportAnunt:hover {
+    background-color: #ABA5A5;
+    transition: 1s;
+}
+
+
+/*********************** Responsive Navigation **************************/
+
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (max-width: 1024px) {}
+
+
+/* Medium Devices, Desktops */
+
+@media only screen and (max-width: 860px) {}
+
+@media only screen and (max-width: 640px) {
+    .exporturi {
+        width: 100%;
+        margin: 0 auto;
+        display: inline-block;
+        text-align: center;
+    }
+    .exporturi #formatExport, .exporturi .exportAnunt {
+        height: 30px;
+        width: 45%;
+        margin: 5px 0;
+    }
+    .exporturi .exportAnunt {
+        height: 30px;
+        width: 45%;
+        margin: 5px 0;
+    }
+}
+
+
+/* Small Devices, Tablets */
+
+@media only screen and (max-width: 480px) {
+    .exporturi #formatExport, .exporturi .exportAnunt {
+        height: 30px;
+        width: 90%;
+        margin: 5px 0;
+    }
+}
