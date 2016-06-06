@@ -8,6 +8,20 @@
                 //vom fi directionati catre autentificare pentru completarea campurilor specifice
                 header('Location: autentificare.php');
             }
+
+
+            $conexiune = $GLOBALS['conexiune'];
+            $sql = "select an.*, ut.utilizator, ut.id as utilizatorId, ut.email, ut.telefon from anunturi an join utilizatori ut on ut.id = an.utilizator where ut.id = ? order by an.data_adaugarii desc";
+            $query = $conexiune->prepare($sql);
+            $query->bind_param('i', $_SESSION['idUtilizator']);
+            $query->execute();
+
+            $rezultat = $query->get_result();
+            
+            $arrAnunturi = array();
+            while($rand = $rezultat->fetch_assoc()) {
+                $arrAnunturi[] = $rand;
+            }
         ?> 
         
        <!--  pentru editarea unui anunt ce apartine utilizatorului autentificat se va apasa butonul de editare
@@ -15,43 +29,61 @@
         modalul se va deschide doar la apasarea butoului de editare
         noile date completate le vor suprascrie pe cele vechi -->
         <div id="modalAnunt"  class="hidden" >
-            <div id="inchideModal"onclick="inchidereModal()">
+            <div id="inchideModal" onclick="inchidereModalAnunt()">
                 <img src="assets/images/icons/close.png">
             </div>
             <h1>Nume anunt</h1>
             <form class="dateModalAnunt">
-                <select class="categorie">
-                    <option disabled="" selected="">Categorie</option>
-                    <option>Animale</option>
-                    <option>Obiecte</option>
+                <input type="hidden" id="addIdAnunt"/>
+                <select class="categorie" id="addCategorie">
+                    <option disabled="" selected="" value="0">Categorie</option>
+                    <?php foreach($GLOBALS['categorii'] as $categorie) { ?>
+                    <option value="<?php echo $categorie ?>"><?php echo $categorie ?></option>
+                    <?php } ?>
                 </select> 
-                <select class="zona">
-                    <option disabled="" selected="">Zona</option>
-                    <option>Pacurari</option>
-                    <option>Dacia</option> 
-                    <option>Valea lupului</option>
+                <select class="zona" id="addZona">
+                    <option disabled="" selected="" value="0">Zona</option>
+                    <?php foreach($GLOBALS['zone'] as $zona) { ?>
+                        <option value="<?php echo $zona ?>"><?php echo $zona ?></option>
+                    <?php } ?>
                 </select>
-                <input type="text" placeholder="nume"/>
-                 <select class="culoare">
-                    <option disabled="" selected="">Culoare</option>
-                    <option> Rosu</option>
-                    <option> Galben</option> 
+                <input type="text" placeholder="nume" id="addNume"/>
+                <select class="culoare" id="addCuloare">
+                    <option disabled="" selected="" value="0">Culoare</option>
+                    <?php foreach($GLOBALS['culori'] as $culoare) { ?>
+                    <option value="<?php echo $culoare ?>"><?php echo $culoare ?></option>
+                <?php } ?>
                 </select>
-                   <select class="stare">
-                    <option disabled="" selected="">Stare</option>
-                    <option>Buna</option>
-                    <option>Deteriorat</option>
+                <select class="stare" id="addStare">
+                    <option disabled="" selected="" value="0">Stare</option>
+                    <?php foreach($GLOBALS['stari'] as $stare) { ?>
+                    <option value="<?php echo $stare ?>"><?php echo $stare ?></option>
+                    <?php } ?>
                 </select>
                 <div class="upload">
-                    <input type="file" name="upload"/> 
+                    <input type="file" name="upload" id="addUpload"/>
                 </div>
-                <textarea placeholder="Descriere"></textarea>
+                <textarea placeholder="Descriere" id="addDescriere"></textarea>
+                <br/>
+                </br>
+                <div id="butoaneModal">
+                    <button id="salveazaEditare" value="Send" class="salveazaEditare" onclick="modificareAnunt()">Salveaza editarea</button>
+                    <button  type="reset" id="anuleazaEditare" value="Cancel" class="anuleazaEditare">Reseteaza campuri</button>
+                </div>
             </form>
-            <br/>
-            </br>
+        </div>
+
+        <!-- realizarea unui modal care se deschide atunci cand apasam pe butonul de stergere anunt -->
+        <div id="modalSterge" class="hidden">
+            <input type="hidden" id="idAnuntStergere"/>
+            <input type="hidden" id="utilizatorAnuntStergere"/>
+            <div id="inchideModal" onclick="inchidereModalStergere()">
+                <img src="assets/images/icons/close.png">
+            </div>
+            <h1> Esti sigur ca vrei sa stergi ?</h1> 
             <div id="butoaneModal">
-                <button name="salveazaEditare" value="Send" class="salveazaEditare"  >Salveaza editarea</button>
-                <button name="anuleazaEditare" value="Cancel" class="anuleazaEditare" >Reseteaza campuri</button>
+                <button name="daSterge" value="yes" class="daSterge" onclick="confirmareStegere()">DA</button>
+                <button name="nuSterge" value="no" class="nuSterge" onclick="inchidereModalStergere()">NU</button>
             </div>
         </div>
 
@@ -92,28 +124,16 @@
 
             <!-- zona anunturilor create de utilizatorul autentificat
             el va avea ca si optiuni: vizualizarea anuntului, editarea si stergerea acestuia -->
-            <section id="anunturiUtilizator"> 
-                <ul class="infoAnunt">
-                     <li class="  anuntInfos anuntulMeu"> nume anunt 1</li>
-                     <li class="  anuntInfos editareAnunt">editare</li>
-                     <li class="  anuntInfos eliminareAnunt">eliminare</li> 
-                     <li class="  anuntInfos vizualizareAnunt">vizualizare</li>
-                 </ul> 
-                 <div class="clearfix"></div>
-                  <ul class="infoAnunt">
-                    <li class="  anuntInfos anuntulMeu">nume anunt 2</li>
-                     <li class="  anuntInfos editareAnunt">editare</li>
-                     <li class="  anuntInfos eliminareAnunt">eliminare</li> 
-                     <li class="  anuntInfos vizualizareAnunt">vizualizare</li>
-                 </ul> 
-                 <div class="clearfix"></div>
-                  <ul class="infoAnunt">
-                     <li class="  anuntInfos anuntulMeu">nume anunt 3</li>
-                     <li class="  anuntInfos editareAnunt">editare</li>
-                     <li class="  anuntInfos eliminareAnunt">eliminare</li> 
-                     <li class="  anuntInfos vizualizareAnunt">vizualizare</li>
-                 </ul>
-                 <div class="clearfix"></div>
+            <section id="anunturiUtilizator">
+                <?php foreach($arrAnunturi as $anunt) { ?>
+                    <ul class="infoAnunt">
+                         <li class="anuntInfos anuntulMeu">#<?php echo $anunt['id'] . ' ' . $anunt['nume'] ?></li>
+                         <li class="anuntInfos editareAnunt" onclick="deschideModalAnunt('editare', '<?php echo $anunt['id'] ?>', '<?php echo $anunt['categorie'] ?>', '<?php echo $anunt['zona'] ?>', '<?php echo $anunt['nume'] ?>', '<?php echo $anunt['culoare'] ?>', '<?php echo $anunt['stare'] ?>', '<?php echo $anunt['descriere'] ?>')">editare</li>
+                         <li class="anuntInfos eliminareAnunt" onclick="deschideModalStergere(<?php echo $anunt['id'] ?>, <?php echo $anunt['utilizatorId'] ?>)">eliminare</li> 
+                         <li class="anuntInfos vizualizareAnunt" onclick="deschideModalAnunt('vizualizare', '<?php echo $anunt['id'] ?>', '<?php echo $anunt['categorie'] ?>', '<?php echo $anunt['zona'] ?>', '<?php echo $anunt['nume'] ?>', '<?php echo $anunt['culoare'] ?>', '<?php echo $anunt['stare'] ?>', '<?php echo $anunt['descriere'] ?>')">vizualizare</li>
+                     </ul> 
+                     <div class="clearfix"></div>
+                 <?php } ?>
             </section> 
             <div class="clearfix"></div>
         </article>

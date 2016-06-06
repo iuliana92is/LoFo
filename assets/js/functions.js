@@ -38,7 +38,7 @@ function inregistrare() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			var raspuns = JSON.parse(xhttp.responseText);
 			if(raspuns.succes) {
-				alert(raspuns.mesaj);
+				window.location = 'autentificare.php';
 			} else {
 				alert(raspuns.mesaj);
 			}
@@ -87,7 +87,7 @@ function autentificare() {
 	return false;
 }
 
-//autentificarea se realizeaza prin completarea campurilor specifice
+//adaugarea unui anunt nou
 function adaugareAnunt(tip) {
 	var files = document.getElementById('addUpload').files;
 	var categorie = document.getElementById("addCategorie").value;
@@ -103,7 +103,7 @@ function adaugareAnunt(tip) {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			var raspuns = JSON.parse(xhttp.responseText);
 			if(raspuns.succes) {
-				windows.location.reload();
+				window.location.reload();
 			} else {
 				alert(raspuns.mesaj);
 			}
@@ -136,14 +136,16 @@ function exportAnunturi(tip) {
 }
 
 // functia de deschidere a modalului pentru stergerea unui anunt
-function deschideModalStergere(idAnunt) {
+function deschideModalStergere(idAnunt, utilizatorAnunt) {
 	document.getElementById("idAnuntStergere").value = idAnunt;
+	document.getElementById("utilizatorAnuntStergere").value = utilizatorAnunt;
 	document.getElementById("modalSterge").classList.remove("hidden");
 }
 
 // functia de inchidere a modalului pentru stergerea unui anunt
 function inchidereModalStergere() {
 	document.getElementById("idAnuntStergere").value = "";
+	document.getElementById("utilizatorAnuntStergere").value = "";
 	document.getElementById("modalSterge").classList.add("hidden");
 }
 
@@ -165,6 +167,7 @@ function inchidereModalFrauda() {
 // apasarea butonului a confirmarii stergerii unui anunt
 function confirmareStegere() {
 	var idAnunt = document.getElementById("idAnuntStergere").value;
+	var utilizatorAnunt = document.getElementById("utilizatorAnuntStergere").value;
 
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -184,6 +187,7 @@ function confirmareStegere() {
 	var data = new FormData();
 	data.append("actiune", "stergereAnunt");
 	data.append("idAnunt", idAnunt);
+	data.append("utilizatorAnunt", utilizatorAnunt);
 	xhttp.send(data);
 	return false;
 }
@@ -217,5 +221,94 @@ function trimiteRaportFrauda() {
 	data.append("email", email);
 	data.append("descriere", descriere);
 	xhttp.send(data);
+	return false;
+}
+
+//vizualizare anunt de pe pagina de profil al utilizatorului
+function deschideModalAnunt(mod, idAnunt, categorie, zona, nume, culoare, stare, descriere) {
+	document.getElementById("addIdAnunt").value = idAnunt;
+	document.getElementById("addCategorie").value = categorie;
+	document.getElementById("addZona").value = zona;
+	document.getElementById("addNume").value = nume;
+	document.getElementById("addCuloare").value = culoare;
+	document.getElementById("addStare").value = stare;
+	document.getElementById("addDescriere").value = descriere;
+
+	if(mod == 'vizualizare') {
+		document.getElementById("addCategorie").disabled = true;
+		document.getElementById("addZona").disabled = true;
+		document.getElementById("addNume").disabled = true;
+		document.getElementById("addCuloare").disabled = true;
+		document.getElementById("addStare").disabled = true;
+		document.getElementById("addDescriere").disabled = true;
+		document.getElementById("salveazaEditare").classList.add("hidden");
+		document.getElementById("anuleazaEditare").classList.add("hidden");
+	}
+
+	document.getElementById("modalAnunt").classList.remove("hidden");
+}
+
+//inchidere modal anunt de pe pagina de profil al utilizatorului
+function inchidereModalAnunt() {
+	document.getElementById("addIdAnunt").value = '';
+	document.getElementById("addCategorie").value = '';
+	document.getElementById("addZona").value = '';
+	document.getElementById("addNume").value = '';
+	document.getElementById("addCuloare").value = '';
+	document.getElementById("addStare").value = '';
+	document.getElementById("addDescriere").value = '';
+
+	document.getElementById("addCategorie").disabled = false;
+	document.getElementById("addZona").disabled = false;
+	document.getElementById("addNume").disabled = false;
+	document.getElementById("addCuloare").disabled = false;
+	document.getElementById("addStare").disabled = false;
+	document.getElementById("addDescriere").disabled = false;
+
+	document.getElementById("salveazaEditare").classList.remove("hidden");
+	document.getElementById("anuleazaEditare").classList.remove("hidden");
+	document.getElementById("modalAnunt").classList.add("hidden");	
+}
+
+//modificare/editare anunt de pe pagina de profil al utilizatorului
+function modificareAnunt() {
+	var idAnunt = document.getElementById('addIdAnunt').value;
+	var files = document.getElementById('addUpload').files;
+	var categorie = document.getElementById("addCategorie").value;
+	var zona = document.getElementById("addZona").value;
+	var nume = document.getElementById("addNume").value;
+	var culoare = document.getElementById("addCuloare").value;
+	var stare = document.getElementById("addStare").value;
+	var descriere = document.getElementById("addDescriere").value;
+
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		//daca primim raspuns valid de la server
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			var raspuns = JSON.parse(xhttp.responseText);
+			if(raspuns.succes) {
+				window.location.reload();
+			} else {
+				alert(raspuns.mesaj);
+			}
+		}
+	};
+
+	xhttp.open("POST", "controller.php", true);
+	var data = new FormData();
+	if(files.length > 0) {
+		data.append("file", files[0], files[0].name);
+	}
+	//noile date din campuri vor fi salvare
+	data.append("idAnunt", idAnunt);
+	data.append("actiune", "modificareAnunt");
+	data.append("categorie", categorie);
+	data.append("zona", zona);
+	data.append("nume", nume);
+	data.append("culoare", culoare);
+	data.append("stare", stare);
+	data.append("descriere", descriere);
+	xhttp.send(data);
+
 	return false;
 }

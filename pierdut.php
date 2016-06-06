@@ -50,6 +50,7 @@
          <!-- realizarea unui modal care se deschide atunci cand apasam pe butonul de stergere anunt -->
         <div id="modalSterge" class="hidden">
             <input type="hidden" id="idAnuntStergere"/>
+            <input type="hidden" id="utilizatorAnuntStergere"/>
             <div id="inchideModal" onclick="inchidereModalStergere()">
                 <img src="assets/images/icons/close.png">
             </div>

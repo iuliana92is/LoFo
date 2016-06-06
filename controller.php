@@ -17,6 +17,9 @@ switch($_POST["actiune"]) {
 	case "adaugareAnunt":
 		adaugareAnunt();
 		break;
+	case "modificareAnunt":
+		modificareAnunt();
+		break;
 	case "stergereAnunt":
 		stergereAnunt();
 		break;
@@ -41,9 +44,12 @@ function inregistrare() {
 	}
 
 	// verificarea existentei utilizatorului in baza de date
-	$sql = "select * from utilizatori where utilizator = '" . mysql_real_escape_string($_POST['utilizator']) . "'";
-	$rezultat = $conexiune->query($sql);
+	$sql = "select * from utilizatori where utilizator = ?";
+	$query = $conexiune->prepare($sql);
+    $query->bind_param('s', $_POST['utilizator']);
+    $query->execute();
 
+	$rezultat = $query->get_result();
 	
 	if($rezultat->num_rows > 0) {
 		echo json_encode(array(
@@ -53,10 +59,13 @@ function inregistrare() {
 		die();
 	}
 
-	// adaugarea utilizatorului nou in baza de date 
-	$sql = "insert into utilizatori (utilizator, parola, nume, email, telefon) values ('" . mysql_real_escape_string($_POST['utilizator']) . "', '" . md5(mysql_real_escape_string($_POST['parola'])) . "', '" . mysql_real_escape_string($_POST['nume']) . "', '" . mysql_real_escape_string($_POST['email']) . "', '" . mysql_real_escape_string($_POST['telefon']) . "')";
+	// adaugarea utilizatorului nou in baza de date
+	$parola =  md5($_POST['parola']);
+	$sql = "insert into utilizatori (utilizator, parola, nume, email, telefon) values (?, ?, ?, ?, ?)";
+	$query = $conexiune->prepare($sql);
+    $query->bind_param('sssss', $_POST['utilizator'], $parola, $_POST['nume'], $_POST['email'], $_POST['telefon']);	
 	
-	if ($conexiune->query($sql) === TRUE) {
+	if ($query->execute() === TRUE) {
 		echo json_encode(array(
 			'succes' => true,
 			'mesaj' => 'Utilizatorul a fost adaugat cu succes!'
@@ -85,8 +94,13 @@ function autentificare() {
 	}
 
 	//verificam daca avem un utilizator cu datele completate, parola este criptata in md5
-	$sql = "select * from utilizatori where utilizator = '" . mysql_real_escape_string($_POST['utilizator']) . "' and parola = '" . md5($_POST['parola']) . "'";
-	$rezultat = $conexiune->query($sql);
+	$parola =  md5($_POST['parola']);
+	$sql = "select * from utilizatori where utilizator = ? and parola = ?";
+	$query = $conexiune->prepare($sql);
+    $query->bind_param('ss', $_POST['utilizator'], $parola);
+    $query->execute();
+
+	$rezultat = $query->get_result();
 
 	//daca datele nu concid se trimite mesaj de eroare
 	if($rezultat->num_rows != 1) {
@@ -133,9 +147,12 @@ function adaugareAnunt() {
 	}
 
 	//se inregistreaza anuntul nou in baza de date in caz de succes
-	$sql = "insert into anunturi (tip, utilizator, categorie, zona, nume, culoare, stare, imagine, descriere, data_adaugarii) values ('" . mysql_real_escape_string($_POST['tip']) . "', '" . mysql_real_escape_string($_SESSION['idUtilizator']) . "', '" . mysql_real_escape_string($_POST['categorie']) . "', '" . mysql_real_escape_string($_POST['zona']) . "', '" . mysql_real_escape_string($_POST['nume']) . "', '" . mysql_real_escape_string($_POST['culoare']) . "', '" . mysql_real_escape_string($_POST['stare']) . "', '" . $caleImagine . "', '" . mysql_real_escape_string($_POST['descriere']) . "', '" . date('Y-m-d') . "')";
+	$dataAdaugarii = date('Y-m-d');
+	$sql = "insert into anunturi (tip, utilizator, categorie, zona, nume, culoare, stare, imagine, descriere, data_adaugarii) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	$query = $conexiune->prepare($sql);
+    $query->bind_param('ssssssssss', $_POST['tip'], $_SESSION['idUtilizator'], $_POST['categorie'], $_POST['zona'], $_POST['nume'], $_POST['culoare'], $_POST['stare'], $caleImagine, $_POST['descriere'], $dataAdaugarii);
 
-	if ($conexiune->query($sql) === TRUE) {
+	if ($query->execute() === TRUE) {
 		echo json_encode(array(
 			'succes' => true,
 			'mesaj' => 'Anuntul a fost adaugat!'
@@ -148,13 +165,56 @@ function adaugareAnunt() {
 	}
 }
 
+function modificareAnunt() {
+	$conexiune = $GLOBALS['conexiune'];
+
+	//functia de incarcare a imaginii la adaugarea unui nou anunt
+	//imaginea se adauga intr-un director numit "upload"
+	$caleImagine = "";
+	if (isset($_FILES["file"]) && move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $_FILES["file"]["name"])) {
+	    $caleImagine = "uploads/" . $_FILES["file"]["name"];
+	}
+
+	//se verifica completarea tuturor campurilor obligatorii pentru adaugarea unui anunt
+	if(!$_POST['idAnunt'] || !$_POST['categorie'] || !$_POST['zona'] || !$_POST['nume'] || !$_POST['culoare'] || !$_POST['stare']) {
+		echo json_encode(array(
+			'succes' => false,
+			'mesaj' => 'Nu sunt completate toate informatiile!'
+		));
+		die();
+	}
+
+	if($caleImagine) {
+		$sql = "update anunturi set imagine = ? where id = ?";
+	    $query = $conexiune->prepare($sql);
+        $query->bind_param('si', $caleImagine, $_POST['idAnunt']);
+        $query->execute();
+	}
+
+	//se modifica anuntul in baza de date
+	$sql = "update anunturi set categorie = ?, zona = ?, nume = ?, culoare = ?, stare = ?, descriere = ? where id = ?";
+	$query = $conexiune->prepare($sql);
+    $query->bind_param('ssssssi', $_POST['categorie'], $_POST['zona'], $_POST['nume'], $_POST['culoare'], $_POST['stare'], $_POST['descriere'], $_POST['idAnunt']);
+
+	if ($query->execute() === TRUE) {
+		echo json_encode(array(
+			'succes' => true,
+			'mesaj' => 'Anuntul a fost adaugat!'
+		));
+	} else {
+		echo json_encode(array(
+			'succes' => false,
+			'mesaj' => 'Eroare adaugare anunt!'
+		));
+	}
+}
 
 // functia de stergere a unui anunt
 function stergereAnunt() {
 	$conexiune = $GLOBALS['conexiune'];
 
 	//stergerea anuntului se realizeaza doar daca userul de tip "admin" este autentificat
-	if(!$_POST['idAnunt'] || !$_SESSION['logat'] || !$_SESSION['admin']) {
+	if(!$_POST['idAnunt'] || !$_SESSION['logat'] || (!$_SESSION['admin'] && $_POST['utilizatorAnunt'] != $_SESSION['idUtilizator'])) {
 		echo json_encode(array(
 			'succes' => false,
 			'mesaj' => 'Nu sunt completate toate informatiile sau nu aveti access la aceasta functionalitate!'
