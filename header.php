@@ -12,6 +12,12 @@
         <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
     </head>
     <body>
+        
+    <!-- in zona de header avem un tip de meniu de navigare cu 5 butoane ce ne va redirectiona catre 5 pagini diferite
+        dupa ce userul se autentifica, butonul de inregistrare se va transorma in butonul nume_user 
+        ce ne va redirectiona catre pagina utilizatorului autentificat
+        iar butonul de autentificare se va transforma in cel de logout ce va avea ca si scop 
+        delogarea userului si retrimiterea automata catre pagina index -->
         <header>
             <section class="header-bar">
                 <div class="left-side">

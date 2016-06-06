@@ -2,6 +2,7 @@
 require_once "config.php";
 require_once "html2pdf/html2fpdf.php";
 
+//functia de export se realizeaza daca se selecteaza un tip de format valid
 if(!isset($_GET['formatExport']) || !isset($_GET['tip']) || !$_GET['formatExport'] || !$_GET['tip']) {
 	echo 'Request invalid!';
 	die;
@@ -9,6 +10,7 @@ if(!isset($_GET['formatExport']) || !isset($_GET['tip']) || !$_GET['formatExport
 
 $conexiune = $GLOBALS['conexiune'];
 
+//selectam toate anunturile de tipul primit ca parametru
 $sql = "select an.*, ut.utilizator from anunturi an join utilizatori ut on ut.id = an.utilizator  where tip = ?";
 $query = $conexiune->prepare($sql);
 $query->bind_param('s', $_GET['tip']);
@@ -21,6 +23,27 @@ while($rand = $rezultat->fetch_assoc()) {
     $arrAnunturi[] = $rand;
 }
 
+//stabilim tipul exportului si facem handle corespunzator
+switch ($_GET['formatExport']) {
+	case 'html':
+		exportHtml($arrAnunturi);
+		break;
+	case 'csv':
+		exportCsv($arrAnunturi);
+		break;
+	case 'json':
+		exportJson($arrAnunturi);
+		break;
+	case 'pdf':
+		exportPdf($arrAnunturi);
+		break;
+	default:
+		echo 'Format export invalid!';
+		die;
+		break;
+}
+
+//schema exportului in format HTML creaza o structura HTML care va fi populata cu datele fiecarui anunt adaugat in baza de date
 function continutHtml($arrAnunturi) {
 	$export = '
 		
@@ -34,7 +57,7 @@ function continutHtml($arrAnunturi) {
 		        <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 		    </head>
 		    <body>
-				<table class="todoDeStilizat" border="1">
+				<table class="tabelHtml">
 				<thead>
 					<tr>
 						<td>#</td>
@@ -53,6 +76,7 @@ function continutHtml($arrAnunturi) {
 				<tbody>
 	';
 
+	//datele anuntului vor fi preluate din baza de date
 	$i = 0;
 	foreach($arrAnunturi as $anunt) {
 		$i++;
@@ -83,17 +107,22 @@ function continutHtml($arrAnunturi) {
 	return $export;
 }
 
+//exportul in format HTML va contine datele care au fost populate in funtia de "continutHtml"
 function exportHtml($arrAnunturi) {
 	$html = continutHtml($arrAnunturi);
 
 	echo $html;
 }
 
+// exportul in format JSON
 function exportJson($arrAnunturi) {
 	echo json_encode($arrAnunturi);
 }
 
+// exportul in format CSV creaza un document extern ce este descarcat local
+// fisierul CSV contine toate campurile unui anunt, acestea fiind populate cu continutul lor din baza de date
 function exportCsv($arrAnunturi) {
+	//setam headerele pentru a forta un fisier sa se descarce
 	header('Content-Type: text/csv; charset=utf-8');
 	header('Content-Disposition: attachment; filename=export.csv');
 	$output = fopen('php://output', 'w');
@@ -104,33 +133,16 @@ function exportCsv($arrAnunturi) {
 	}
 }
 
+// exportul in format PDF (folosit cu librarie)
 function exportPdf($arrAnunturi) {
 	error_reporting(0);
 	header('Content-type: application/pdf');
 
 	$html = continutHtml($arrAnunturi);
+	//landscape
 	$pdf = new HTML2FPDF('L');
 	$pdf->AddPage();
 	$pdf->WriteHtml($html);
 	$pdf->Output();
-}
-
-switch ($_GET['formatExport']) {
-	case 'html':
-		exportHtml($arrAnunturi);
-		break;
-	case 'csv':
-		exportCsv($arrAnunturi);
-		break;
-	case 'json':
-		exportJson($arrAnunturi);
-		break;
-	case 'pdf':
-		exportPdf($arrAnunturi);
-		break;
-	default:
-		echo 'Format export invalid!';
-		die;
-		break;
 }
 ?>

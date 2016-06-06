@@ -1,0 +1,39 @@
+.tabelHtml {
+	width: 80%;
+	margin:	100px auto;
+	border: 1px dotted #5BC4BF;
+	box-shadow: 0 5px 6px #f3f3f3, 0 5px 6px #f3f3f3;
+}
+
+.tabelHtml thead{
+	width: 100%;  
+	border: 1px dotted #5BC4BF;
+}
+
+.tabelHtml thead tr td{ 
+	border: 1px dotted #fff;
+    text-align: center;
+    height: 40px;
+    line-height: 3;
+    color: white;
+    background-color: 5BC4BF;
+    width: 9%;
+    text-transform: uppercase;
+}
+
+.tabelHtml tbody{
+	width: 100%;  
+	border: 1px dotted #5BC4BF;
+}
+
+.tabelHtml tbody tr td{ 
+	border: 1px dotted #5BC4BF;
+	text-align: center;
+	max-width: 9%; 
+	vertical-align: top;
+	padding-top: 20px;
+}
+
+.tabelHtml tbody tr td img	{
+	max-width: 150px;
+}
