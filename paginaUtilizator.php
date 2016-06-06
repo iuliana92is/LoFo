@@ -90,8 +90,8 @@
             </div>
             <br />
 
-            zona anunturilor create de utilizatorul autentificat
-            el va avea ca si optiuni: vizualizarea anuntului, editarea si stergerea acestuia
+            <!-- zona anunturilor create de utilizatorul autentificat
+            el va avea ca si optiuni: vizualizarea anuntului, editarea si stergerea acestuia -->
             <section id="anunturiUtilizator"> 
                 <ul class="infoAnunt">
                      <li class="  anuntInfos anuntulMeu"> nume anunt 1</li>

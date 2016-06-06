@@ -176,7 +176,7 @@
                 <div class="clearfix"></div>
                 <div class="listaObiecte">
                     <?php foreach($arrAnunturi as $anunt) { ?>
-                    <div class=rand>
+                    <div class="rand">
                         <ul>
                         <li class="id" ><?php echo $anunt['id'] ?> </li>
                         <li class="categorie" ><?php echo $anunt['categorie'] ?> </li>

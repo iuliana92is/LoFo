@@ -6,6 +6,7 @@ if(!isset($_POST["actiune"])) {
 	die("Request incorect!");
 }
 
+//stabilim tipul actiunii si facem handle corespunzator
 switch($_POST["actiune"]) {
 	case "inregistare":
 		inregistrare();
@@ -29,7 +30,7 @@ switch($_POST["actiune"]) {
 // functia de inregistrare a unui nou utilizator
 function inregistrare() {
 
-	// realizarea inregistrarii pe baza de nume email nume_user si parola
+	// verificarea validitatii campurilor completate
 	$conexiune = $GLOBALS['conexiune'];
 	if(!$_POST["nume"] || !$_POST["email"] || !$_POST["utilizator"] || !$_POST["parola"]) {
 		echo json_encode(array(
@@ -38,11 +39,12 @@ function inregistrare() {
 		));
 		die();
 	}
-	//inregistrarea in baza de date a noului utilizator
+
+	// verificarea existentei utilizatorului in baza de date
 	$sql = "select * from utilizatori where utilizator = '" . mysql_real_escape_string($_POST['utilizator']) . "'";
 	$rezultat = $conexiune->query($sql);
 
-	// verificarea existentei utilizatorului in baza de date
+	
 	if($rezultat->num_rows > 0) {
 		echo json_encode(array(
 			'succes' => false,
@@ -69,10 +71,11 @@ function inregistrare() {
 
 
 // functia de autentificare a unui utilizator
+//autentificarea se realizeaza pe baza completarii campului de nume_utilizator si parola acestuia de la inregistrarea lui in baza de date	
 function autentificare() {
 	$conexiune = $GLOBALS['conexiune'];
 
-	//autentificarea se realizeaza pe baza completarii campului de nume_utilizator si parola acestuia de la inregistrarea lui in baza de date
+	//se verifica validitatea campurilor completate
 	if(!$_POST["utilizator"] || !$_POST["parola"]) {
 		echo json_encode(array(
 			'succes' => false,
@@ -81,7 +84,7 @@ function autentificare() {
 		die();
 	}
 
-	//parola este criptata
+	//verificam daca avem un utilizator cu datele completate, parola este criptata in md5
 	$sql = "select * from utilizatori where utilizator = '" . mysql_real_escape_string($_POST['utilizator']) . "' and parola = '" . md5($_POST['parola']) . "'";
 	$rezultat = $conexiune->query($sql);
 
@@ -94,6 +97,7 @@ function autentificare() {
 		die();
 	}
 
+	//daca gasim utilizatorul, ii setam sesiunea
 	$utilizator = $rezultat->fetch_assoc();
 	$_SESSION['logat'] = true;
 	$_SESSION['idUtilizator'] = $utilizator['id'];
@@ -184,7 +188,7 @@ function trimiteRaportFrauda() {
 
 	// se trimite raportul de frauda prin completarea campurilor modalului respectiv
 	// mesajul ajunge la "iuliana92ciobanu@gmail.com"
-	// mesajul de raportare a fraudei contine nume, email si descriere
+	// mesajul de raportare a fraudei contine id, nume, email si descriere
 	$to = "iuliana92ciobanu@gmail.com";
 	$from = $_POST['email'];
 	$subject = "Raportare frauda LoFo";

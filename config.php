@@ -10,7 +10,7 @@ if(!isset($_SESSION['utilizator'])) {
     $_SESSION['utilizator'] = '';
 }
 
-// datele de configurare a functionarii aplicatiei
+// datele de conectare la baza de date
 $db_server = "localhost";
 $db_utilizator = "root";
 $db_parola = "";

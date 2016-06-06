@@ -3,7 +3,7 @@
             include "header.php";
 
             $conexiune = $GLOBALS['conexiune'];
-            $sql = "select an.*, ut.utilizator, ut.email, ut.telefon from anunturi an join utilizatori ut on ut.id = an.utilizator order by an.data_adaugarii desc";
+            $sql = "select an.*, ut.utilizator, ut.email, ut.telefon from anunturi an join utilizatori ut on ut.id = an.utilizator order by an.data_adaugarii desc limit 0,10";
             $query = $conexiune->prepare($sql);
             $query->execute();
 
